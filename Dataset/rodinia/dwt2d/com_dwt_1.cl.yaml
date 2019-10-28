@@ -1,0 +1,64 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 1
+Branches: 2
+Loops: 0
+num_parameters: 5
+c_CopySrcToComponents:
+  d_r:
+    cl_type: int
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: c_CopySrcToComponents_d_r_1563455891_023.txt
+    result: true
+    pos: 0
+  d_g:
+    cl_type: int
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: c_CopySrcToComponents_d_g_1563455891_023.txt
+    result: false
+    pos: 1
+  d_b:
+    cl_type: int
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: c_CopySrcToComponents_d_b_1563455891_023.txt
+    result: false
+    pos: 2
+  cl_d_src:
+    cl_type: uchar
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: c_CopySrcToComponents_cl_d_src_1563455891_023.txt
+    result: false
+    pos: 3
+  pixels:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: c_CopySrcToComponents_pixels_1563455891_023.txt
+    result: false
+    pos: 4

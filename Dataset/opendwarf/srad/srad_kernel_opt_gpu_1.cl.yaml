@@ -1,0 +1,108 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 4
+Branches: 28
+Loops: 0
+num_parameters: 9
+srad_cuda_1:
+  E_C:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 0
+  W_C:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 1
+  N_C:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 2
+  S_C:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 3
+  J_cuda:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 4
+  C_cuda:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 5
+  cols:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 6
+  rows:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 7
+  q0sqr:
+    cl_type: float
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 8

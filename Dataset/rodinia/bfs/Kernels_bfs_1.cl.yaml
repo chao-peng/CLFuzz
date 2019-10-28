@@ -1,0 +1,96 @@
+BFS_1:
+  g_cost:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: BFS_1_g_cost_1563813919969405_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 5
+    result: true
+    size: 10240
+  g_graph_edges:
+    cl_scope: global
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: BFS_1_g_graph_edges_1563813919969405_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  g_graph_mask:
+    cl_scope: global
+    cl_type: char
+    const: false
+    fuzzing: random
+    init_file: BFS_1_g_graph_mask_1563813919969405_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: true
+    size: 10240
+  g_graph_nodes:
+    Node_key0_name: starting
+    Node_key0_type: int
+    Node_key1_name: no_of_edges
+    Node_key1_type: int
+    cl_scope: global
+    cl_type: Node
+    const: true
+    fuzzing: random
+    init_file: BFS_1_g_graph_nodes_1563813919969405_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+  g_graph_visited:
+    cl_scope: global
+    cl_type: char
+    const: false
+    fuzzing: random
+    init_file: BFS_1_g_graph_visited_1563813919969405_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: true
+    size: 10240
+  g_updating_graph_mask:
+    cl_scope: global
+    cl_type: char
+    const: false
+    fuzzing: random
+    init_file: BFS_1_g_updating_graph_mask_1563813919969405_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: true
+    size: 10240
+  no_of_nodes:
+    cl_scope: null
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: BFS_1_no_of_nodes_1563813919969405_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 6
+    result: false
+    size: 1
+Barriers: 0
+Branches: 4
+Cov: true
+Loops: 1
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 7

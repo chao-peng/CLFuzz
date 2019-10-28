@@ -1,0 +1,59 @@
+Barriers: 0
+Branches: 0
+Cov: false
+Loops: 3
+num_parameters: 4
+crc32_slice8:
+  data:
+    cl_scope: global
+    cl_type: uint
+    const: true
+    fuzzing: random
+    init_file: crc32_slice8_data_1563754931664695_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: false
+    size: 10240
+  length_bytes:
+    cl_scope: null
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: crc32_slice8_length_bytes_1563754931664695_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 1
+    result: false
+    size: 1
+  length_ints:
+    cl_scope: null
+    cl_type: uint
+    const: true
+    fuzzing: random
+    init_file: crc32_slice8_length_ints_1563754931664695_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 2
+    result: false
+    size: 1
+  res:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: crc32_slice8_res_1563754931664695_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: true
+    size: 10240
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1

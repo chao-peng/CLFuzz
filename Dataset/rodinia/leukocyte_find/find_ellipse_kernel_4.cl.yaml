@@ -1,0 +1,86 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 0
+Branches: 10
+Loops: 2
+num_parameters: 7
+dilate_kernel:
+  img_m:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: dilate_kernel_img_m_1563463767_000.txt
+    result: false
+    pos: 0
+  img_n:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: dilate_kernel_img_n_1563463767_000.txt
+    result: false
+    pos: 1
+  strel_m:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: dilate_kernel_strel_m_1563463767_000.txt
+    result: false
+    pos: 2
+  strel_n:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: dilate_kernel_strel_n_1563463767_000.txt
+    result: false
+    pos: 3
+  c_strel:
+    cl_type: float
+    cl_scope: constant
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: dilate_kernel_c_strel_1563463767_000.txt
+    result: false
+    pos: 4
+  img:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: dilate_kernel_img_1563463767_000.txt
+    result: false
+    pos: 5
+  dilated:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: dilate_kernel_dilated_1563463767_000.txt
+    result: true
+    pos: 6

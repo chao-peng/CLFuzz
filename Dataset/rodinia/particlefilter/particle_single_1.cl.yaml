@@ -1,0 +1,97 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 1
+Branches: 6
+Loops: 1
+num_parameters: 8
+find_index_kernel:
+  arrayX:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: find_index_kernel_arrayX_1563470771_000.txt
+    result: false
+    pos: 0
+  arrayY:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: find_index_kernel_arrayY_1563470771_000.txt
+    result: false
+    pos: 1
+  CDF:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: find_index_kernel_CDF_1563470771_000.txt
+    result: false
+    pos: 2
+  u:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: find_index_kernel_u_1563470771_000.txt
+    result: false
+    pos: 3
+  xj:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: find_index_kernel_xj_1563470771_000.txt
+    result: true
+    pos: 4
+  yj:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: find_index_kernel_yj_1563470771_000.txt
+    result: true
+    pos: 5
+  weights:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: find_index_kernel_weights_1563470771_000.txt
+    result: false
+    pos: 6
+  Nparticles:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: find_index_kernel_Nparticles_1563470771_000.txt
+    result: false
+    pos: 7

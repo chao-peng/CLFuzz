@@ -1,0 +1,90 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 0
+Branches: 4
+Loops: 1
+num_parameters: 7
+kernel1:
+  g_graph_nodes:
+    cl_type: Node
+    cl_scope: global
+    const: true
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    Node_key0_name: starting
+    Node_key1_name: no_of_edges
+    Node_key0_type: int
+    Node_key1_type: int
+    pos: 0
+  g_graph_edges:
+    cl_type: int
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 1
+  g_graph_mask:
+    cl_type: int
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 2
+  g_updating_graph_mask:
+    cl_type: int
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: true
+    pos: 3
+  g_graph_visited:
+    cl_type: int
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 4
+  g_cost:
+    cl_type: int
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: true
+    pos: 5
+  no_of_nodes:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 6

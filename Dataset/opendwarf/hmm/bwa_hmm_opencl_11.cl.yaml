@@ -1,0 +1,103 @@
+Barriers: 0
+Branches: 2
+Cov: true
+Loops: 0
+num_parameters: 8
+acc_b_dev:
+  alpha_d:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: acc_b_dev_alpha_d_1563795760897306_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  b_d:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: acc_b_dev_b_d_1563795760897306_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+  beta_d:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: acc_b_dev_beta_d_1563795760897306_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: true
+    size: 10240
+  nstates:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: acc_b_dev_nstates_1563795760897306_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 4
+    result: false
+    size: 1
+  nsymbols:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: acc_b_dev_nsymbols_1563795760897306_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 5
+    result: false
+    size: 1
+  obs_t:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: acc_b_dev_obs_t_1563795760897306_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 6
+    result: false
+    size: 1
+  sum_ab:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: acc_b_dev_sum_ab_1563795760897306_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 3
+    result: false
+    size: 1
+  t:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: acc_b_dev_t_1563795760897306_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 7
+    result: false
+    size: 1
+dim: 0
+global:
+- 256
+- 4
+- 1
+local:
+- 128
+- 2
+- 1

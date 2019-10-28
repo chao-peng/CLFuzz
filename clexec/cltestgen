@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+import argparse
+from libCLExec import *
+import os
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Generate OpenCL Tests.")
+    parser.add_argument('info', metavar='info.yaml', type=str, help='kernel information in YAML', default="")
+    parser.add_argument('-n', metavar='number', type=int, help="number of generated tests", default=100, required=False)
+    parser.add_argument('-c', metavar="clean", type=bool, help="delete all schedule files in this folder",
+                        default=False, required=False)
+    args = parser.parse_args()
+    info_filename = args.info
+    num_tests = args.n
+    clean = args.c
+
+    target_kernel = info_filename[-8]
+    kernel_info = parse_kernel_info(info_filename)
+    for item in list(kernel_info.keys()):
+        if item not in ["Cov", "global", "local", "dim", "Barriers", "Branches", "Loops", "device_ID", "num_parameters",
+                        "num_tests", "platform_ID", "structure_data_filename", "time_stamp"]:
+            target_kernel = item
+
+    if clean:
+        os.system("rm -fr " + target_kernel + "_test*.npy")
+        print("Generated test files are removed")
+        exit(0)
+
+    test_generation(target_kernel, kernel_info, num_tests)
+
+
+if __name__ == "__main__":
+    main()

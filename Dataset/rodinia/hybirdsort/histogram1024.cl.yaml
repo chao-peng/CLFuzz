@@ -1,0 +1,70 @@
+Barriers: 2
+Branches: 0
+Cov: false
+Loops: 5
+dim: 0
+global:
+- 1024
+- 1
+- 1
+num_parameters: 5
+histogram1024Kernel:
+  d_Data:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: histogram1024Kernel_d_Data_1563816667871156_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  d_Result:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: histogram1024Kernel_d_Result_1563816667871156_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+  dataCount:
+    cl_scope: null
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: histogram1024Kernel_dataCount_1563816667871156_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 4
+    result: false
+    size: 1
+  maximum:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: histogram1024Kernel_maximum_1563816667871156_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 3
+    result: false
+    size: 1
+  minimum:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: histogram1024Kernel_minimum_1563816667871156_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 2
+    result: false
+    size: 1
+local:
+- 256
+- 1
+- 1

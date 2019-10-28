@@ -1,0 +1,86 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 0
+Branches: 2
+Loops: 2
+num_parameters: 6
+measurement_vertices:
+  src:
+    cl_type: ushort
+    cl_scope: global
+    const: true
+    pointer: true
+    result: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: measurement_vertices_src_time
+    pos: 0
+  width:
+    cl_type: int
+    cl_scope: global
+    const: true
+    pointer: true
+    result: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: measurement_vertices_width_time
+    pos: 1
+  height:
+    cl_type: int
+    cl_scope: global
+    const: true
+    pointer: true
+    result: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: measurement_vertices_height_time
+    pos: 2
+  fl:
+    cl_type: float
+    cl_scope: global
+    const: true
+    pointer: true
+    result: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: measurement_vertices_fl_time
+    pos: 3
+  vmap:
+    cl_type: float3
+    cl_scope: global
+    const: false
+    pointer: true
+    result: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: measurement_vertices_vmap_time
+    pos: 4
+  sigma_s:
+    cl_type: float
+    cl_scope: global
+    const: true
+    pointer: true
+    result: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: measurement_vertices_sigma_s_time
+    pos: 5
+  sigma_r:
+    cl_type: float
+    cl_scope: global
+    const: true
+    pointer: true
+    result: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: measurement_vertices_sigma_r_time
+    pos: 6

@@ -1,0 +1,42 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 0
+Branches: 2
+Loops: 0
+num_parameters: 3
+mergeSortFirst:
+  input:
+    cl_type: float4
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: mergeSortFirst_input_1563460861_007.txt
+    result: false
+    pos: 0
+  result:
+    cl_type: float4
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: mergeSortFirst_result_1563460861_007.txt
+    result: true
+    pos: 1
+  listsize:
+    cl_type: int
+    cl_scope:
+    const: true
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: mergeSortFirst_listsize_1563460861_007.txt
+    result: false
+    pos: 2

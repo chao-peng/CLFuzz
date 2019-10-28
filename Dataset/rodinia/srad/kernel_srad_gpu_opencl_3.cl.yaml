@@ -1,0 +1,81 @@
+Barriers: 4
+Branches: 20
+Cov: false
+Loops: 5
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 6
+reduce_kernel:
+  d_Ne:
+    cl_scope: null
+    cl_type: long
+    const: false
+    fuzzing: random
+    init_file: reduce_kernel_d_Ne_1563800348628624_001.txt
+    initial_value: unset
+    pointer: false
+    pos: 0
+    result: false
+    size: 1
+  d_mul:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: reduce_kernel_d_mul_1563800348628624_001.txt
+    initial_value: unset
+    pointer: false
+    pos: 2
+    result: false
+    size: 1
+  d_no:
+    cl_scope: null
+    cl_type: long
+    const: false
+    fuzzing: random
+    init_file: reduce_kernel_d_no_1563800348628624_001.txt
+    initial_value: unset
+    pointer: false
+    pos: 1
+    result: false
+    size: 1
+  d_sums:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: reduce_kernel_d_sums_1563800348628624_001.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: true
+    size: 10240
+  d_sums2:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: reduce_kernel_d_sums2_1563800348628624_001.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: true
+    size: 10240
+  gridDim:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: reduce_kernel_gridDim_1563800348628624_001.txt
+    initial_value: unset
+    pointer: false
+    pos: 5
+    result: false
+    size: 1

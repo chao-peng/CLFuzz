@@ -1,0 +1,75 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 1
+Branches: 0
+Loops: 2
+num_parameters: 6
+bucketsort:
+  input:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: bucketsort_input_1563460635_000.txt
+    result: false
+    pos: 0
+  indice:
+    cl_type: int
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: bucketsort_indice_1563460635_000.txt
+    result: false
+    pos: 1
+  output:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: bucketsort_output_1563460635_000.txt
+    result: true
+    pos: 2
+  size:
+    cl_type: int
+    cl_scope:
+    const: true
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: bucketsort_size_1563460635_000.txt
+    result: false
+    pos: 3
+  d_prefixoffsets:
+    cl_type: uint
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: bucketsort_d_prefixoffsets_1563460635_000.txt
+    result: false
+    pos: 4
+  l_offsets:
+    cl_type: uint
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: bucketsort_l_offsets_1563460635_000.txt
+    result: false
+    pos: 5

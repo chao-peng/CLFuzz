@@ -1,0 +1,70 @@
+Barriers: 0
+Branches: 0
+Cov: false
+Loops: 0
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 5
+rdwdot2_kernel:
+  RKF:
+    cl_scope: global
+    cl_type: double
+    const: true
+    fuzzing: random
+    init_file: rdwdot2_kernel_RKF_1563825457815542_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+  RKR:
+    cl_scope: global
+    cl_type: double
+    const: true
+    fuzzing: random
+    init_file: rdwdot2_kernel_RKR_1563825457815542_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  WDOT:
+    cl_scope: global
+    cl_type: double
+    const: false
+    fuzzing: random
+    init_file: rdwdot2_kernel_WDOT_1563825457815542_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: true
+    size: 10240
+  molwt:
+    cl_scope: global
+    cl_type: double
+    const: true
+    fuzzing: random
+    init_file: rdwdot2_kernel_molwt_1563825457815542_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: true
+    size: 10240
+  rateconv:
+    cl_scope: null
+    cl_type: double
+    const: true
+    fuzzing: random
+    init_file: rdwdot2_kernel_rateconv_1563825457815542_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 3
+    result: false
+    size: 1

@@ -1,0 +1,48 @@
+Barriers: 0
+Branches: 2
+Cov: false
+Loops: 0
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 3
+memset_kernel:
+  ct:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: memset_kernel_ct_1563814295512753_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 2
+    result: false
+    size: 1
+  mem_d:
+    cl_scope: global
+    cl_type: char
+    const: false
+    fuzzing: random
+    init_file: memset_kernel_mem_d_1563814295512753_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 1024000
+  val:
+    cl_scope: null
+    cl_type: short
+    const: false
+    fuzzing: random
+    init_file: memset_kernel_val_1563814295512753_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 1
+    result: false
+    size: 1

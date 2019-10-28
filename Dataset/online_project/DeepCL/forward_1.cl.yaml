@@ -1,0 +1,70 @@
+Barriers: 0
+Branches: 0
+Cov: false
+Loops: 2
+num_parameters: 5
+convolve_ints:
+  filter:
+    cl_scope: global
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: convolve_ints_filter_1563666963_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: false
+    size: 10240
+  image:
+    cl_scope: global
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: convolve_ints_image_1563666963_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: false
+    size: 10240
+  p_filterSize:
+    cl_scope: global
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: convolve_ints_p_filterSize_1563666963_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: false
+    size: 10240
+  p_imageSize:
+    cl_scope: global
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: convolve_ints_p_imageSize_1563666963_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: false
+    size: 10240
+  result:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: convolve_ints_result_1563666963_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: true
+    size: 10240
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1

@@ -1,0 +1,103 @@
+Barriers: 0
+Branches: 2
+Cov: true
+Loops: 2
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 8
+mvm_trans_kernel_naive:
+  A:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: mvm_trans_kernel_naive_A_1563795355145491_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: true
+    size: 102
+  lda:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: mvm_trans_kernel_naive_lda_1563795355145491_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 3
+    result: false
+    size: 1
+  m:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: mvm_trans_kernel_naive_m_1563795355145491_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 0
+    result: false
+    size: 1
+  n:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: mvm_trans_kernel_naive_n_1563795355145491_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 1
+    result: false
+    size: 1
+  offsetX:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: mvm_trans_kernel_naive_offsetX_1563795355145491_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 5
+    result: false
+    size: 1
+  offsetY:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: mvm_trans_kernel_naive_offsetY_1563795355145491_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 7
+    result: false
+    size: 1
+  x:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: mvm_trans_kernel_naive_x_1563795355145491_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: true
+    size: 102
+  y:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: mvm_trans_kernel_naive_y_1563795355145491_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 6
+    result: true
+    size: 102

@@ -1,0 +1,53 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 0
+Branches: 0
+Loops: 0
+num_parameters: 4
+measurement_normals:
+  width:
+    cl_type: int
+    cl_scope: global
+    const: true
+    pointer: true
+    result: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: measurement_normals_width_time
+    pos: 0
+  height:
+    cl_type: int
+    cl_scope: global
+    const: true
+    pointer: true
+    result: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: measurement_normals_height_time
+    pos: 1
+  vmap:
+    cl_type: float3
+    cl_scope: global
+    const: true
+    pointer: true
+    result: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: measurement_normals_vmap_time
+    pos: 2
+  nmap:
+    cl_type: float3
+    cl_scope: global
+    const: false
+    pointer: true
+    result: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: measurement_normals_nmap_time
+    pos: 3

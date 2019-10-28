@@ -1,0 +1,59 @@
+Barriers: 0
+Branches: 2
+Cov: false
+Loops: 0
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 4
+prepare_kernel:
+  d_I:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: prepare_kernel_d_I_1563800649535323_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  d_Ne:
+    cl_scope: null
+    cl_type: long
+    const: false
+    fuzzing: random
+    init_file: prepare_kernel_d_Ne_1563800649535323_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 0
+    result: false
+    size: 1
+  d_sums:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: prepare_kernel_d_sums_1563800649535323_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: true
+    size: 10240
+  d_sums2:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: prepare_kernel_d_sums2_1563800649535323_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: true
+    size: 10240

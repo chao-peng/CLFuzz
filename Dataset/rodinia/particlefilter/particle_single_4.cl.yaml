@@ -1,0 +1,235 @@
+Barriers: 4
+Branches: 14
+Cov: false
+Loops: 3
+dim: 0
+global:
+- 1024
+- 1
+- 1
+num_parameters: 20
+likelihood_kernel:
+  CDF:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: likelihood_kernel_CDF_1563802764894270_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: true
+    size: 10240
+  I:
+    cl_scope: global
+    cl_type: uchar
+    const: false
+    fuzzing: random
+    init_file: likelihood_kernel_I_1563802764894270_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 8
+    result: true
+    size: 10240
+  IszY:
+    cl_scope: null
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: likelihood_kernel_IszY_1563802764894270_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 15
+    result: false
+    size: 1
+  Nfr:
+    cl_scope: null
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: likelihood_kernel_Nfr_1563802764894270_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 16
+    result: false
+    size: 1
+  Nparticles:
+    cl_scope: null
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: likelihood_kernel_Nparticles_1563802764894270_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 11
+    result: false
+    size: 1
+  arrayX:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: likelihood_kernel_arrayX_1563802764894270_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+  arrayY:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: likelihood_kernel_arrayY_1563802764894270_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  buffer:
+    cl_scope: local
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: likelihood_kernel_buffer_1563802764894270_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 19
+    result: false
+    size: 10240
+  countOnes:
+    cl_scope: null
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: likelihood_kernel_countOnes_1563802764894270_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 12
+    result: false
+    size: 1
+  ind:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: likelihood_kernel_ind_1563802764894270_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 5
+    result: true
+    size: 10240
+  k:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: likelihood_kernel_k_1563802764894270_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 14
+    result: false
+    size: 1
+  likelihood:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: likelihood_kernel_likelihood_1563802764894270_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 7
+    result: true
+    size: 10240
+  max_size:
+    cl_scope: null
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: likelihood_kernel_max_size_1563802764894270_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 13
+    result: false
+    size: 1
+  objxy:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: likelihood_kernel_objxy_1563802764894270_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 6
+    result: true
+    size: 10240
+  partial_sums:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: likelihood_kernel_partial_sums_1563802764894270_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 18
+    result: true
+    size: 10240
+  seed:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: likelihood_kernel_seed_1563802764894270_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 17
+    result: true
+    size: 10240
+  u:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: likelihood_kernel_u_1563802764894270_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 9
+    result: true
+    size: 10240
+  weights:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: likelihood_kernel_weights_1563802764894270_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 10
+    result: true
+    size: 10240
+  xj:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: likelihood_kernel_xj_1563802764894270_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: true
+    size: 10240
+  yj:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: likelihood_kernel_yj_1563802764894270_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: true
+    size: 10240
+local:
+- 256
+- 1
+- 1

@@ -1,0 +1,86 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 0
+Branches: 6
+Loops: 1
+num_parameters: 7
+nqueen1:
+  board_size:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 0
+  level:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 1
+  threads:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 2
+  pitch:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 3
+  params:
+    cl_type: uint
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 4
+  results:
+    cl_type: uint
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: true
+    pos: 5
+  forbidden:
+    cl_type: uint
+    cl_scope: constant
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 6

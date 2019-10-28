@@ -1,0 +1,166 @@
+BFS_kernel:
+  g_color:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: BFS_kernel_g_color_1563754155566847_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: false
+    size: 1024
+  g_cost:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: BFS_kernel_g_cost_1563754155566847_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 5
+    result: false
+    size: 1024
+  g_graph_edges:
+    Edge_key0_name: x
+    Edge_key0_type: int
+    Edge_key1_name: y
+    Edge_key1_type: int
+    cl_scope: global
+    cl_type: Edge
+    const: false
+    fuzzing: random
+    init_file: BFS_kernel_g_graph_edges_1563754155566847_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: false
+    size: 1024
+  g_graph_nodes:
+    Node_key0_name: x
+    Node_key0_type: int
+    Node_key1_name: y
+    Node_key1_type: int
+    cl_scope: global
+    cl_type: Node
+    const: false
+    fuzzing: random
+    init_file: BFS_kernel_g_graph_nodes_1563754155566847_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: false
+    size: 1024
+  gray_shade:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: initial_value
+    init_file: unset
+    initial_value: 16677219
+    pointer: false
+    pos: 8
+    result: false
+    size: 1
+  k:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: initial_value
+    init_file: unset
+    initial_value: 0
+    pointer: false
+    pos: 9
+    result: false
+    size: 1
+  local_q:
+    cl_scope: local
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: BFS_kernel_local_q_1563754155566847_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 11
+    result: false
+    size: 32
+  local_q_tail:
+    cl_scope: local
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: BFS_kernel_local_q_tail_1563754155566847_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 10
+    result: false
+    size: 32
+  no_of_nodes:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: initial_value
+    init_file: BFS_kernel_no_of_nodes_1563754155566847_000.txt
+    initial_value: 1024
+    pointer: false
+    pos: 7
+    result: false
+    size: 1
+  q1:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: BFS_kernel_q1_1563754155566847_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: false
+    size: 1024
+  q2:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: BFS_kernel_q2_1563754155566847_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: false
+    size: 1024
+  shift:
+    cl_scope: local
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: BFS_kernel_shift_1563754155566847_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 12
+    result: false
+    size: 32
+  tail:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: BFS_kernel_tail_1563754155566847_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 6
+    result: false
+    size: 1
+Barriers: 3
+Branches: 12
+Cov: true
+Loops: 2
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 32
+- 1
+- 1
+num_parameters: 13

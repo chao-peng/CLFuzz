@@ -1,0 +1,48 @@
+Barriers: 0
+Branches: 0
+Cov: false
+Loops: 0
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 3
+ratt_kernel:
+  RF:
+    cl_scope: global
+    cl_type: double
+    const: false
+    fuzzing: random
+    init_file: ratt_kernel_RF_1563825439895927_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  T:
+    cl_scope: global
+    cl_type: double
+    const: true
+    fuzzing: random
+    init_file: ratt_kernel_T_1563825439895927_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+  TCONV:
+    cl_scope: null
+    cl_type: double
+    const: false
+    fuzzing: random
+    init_file: ratt_kernel_TCONV_1563825439895927_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 2
+    result: false
+    size: 1

@@ -1,0 +1,57 @@
+#!/usr/bin/env python3
+import sys
+
+
+def read_one_output(filename, covInfo):
+    f = open(filename, "r")
+    for line in f:
+        if "[KLEE-COV-INFO] ID: " in line:
+            strarr = line.strip().split(" ")
+            if len(strarr) < 4:
+                continue
+            id = int(strarr[2])
+            covStr = strarr[3]
+            if id not in covInfo:
+                covInfo[id] = {"True": False, "False": False}
+            if "T" in covStr:
+                covInfo[id]["True"] = True
+            if "F" in covStr:
+                covInfo[id]["False"] = True
+
+
+def main():
+    covInfo = {}
+    for i in range(1, len(sys.argv)):
+        read_one_output(sys.argv[i], covInfo)
+    numBranches = len(covInfo) * 2
+    covered = 0
+    code = ""
+    for i in covInfo:
+        outputStr = str(i) + "\tTrue branch: "
+        if covInfo[i]["True"]:
+            outputStr = outputStr + "Y."
+            covered = covered + 1
+            code = code + "1"
+        else:
+            outputStr = outputStr + "N."
+            code = code + "0"
+        outputStr = outputStr + " False branch: "
+        if covInfo[i]["False"]:
+            outputStr = outputStr + "Y."
+            covered = covered + 1
+            code = code + "1"
+        else:
+            outputStr = outputStr + "N."
+            code = code + "0"
+        print(outputStr)
+        code = code + " "
+    covResult = float(covered) / float(numBranches) * 100.0
+    covResult = round(covResult, 2)
+    print("Covered Branches: " + str(covered))
+    print("Number of Branches: " + str(numBranches))
+    print("Coverage Summary: " + code)
+    print("Overall Coverage: " + str(covResult) + "%")
+
+
+if __name__ == "__main__":
+    main()

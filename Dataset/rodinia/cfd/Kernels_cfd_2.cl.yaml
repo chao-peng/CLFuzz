@@ -1,0 +1,48 @@
+Barriers: 0
+Branches: 2
+Cov: false
+Loops: 1
+dim: 0
+global:
+- 1024
+- 1
+- 1
+num_parameters: 3
+initialize_variables:
+  ff_variable:
+    cl_scope: constant
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: initialize_variables_ff_variable_1563814418657054_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  nelr:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: initialize_variables_nelr_1563814418657054_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 2
+    result: false
+    size: 1
+  variables:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: initialize_variables_variables_1563814418657054_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+local:
+- 256
+- 1
+- 1

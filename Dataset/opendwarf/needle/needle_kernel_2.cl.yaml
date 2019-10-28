@@ -1,0 +1,81 @@
+Barriers: 2
+Branches: 8
+Cov: false
+Loops: 2
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 6
+needle_opencl_shared_2:
+  block_width:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: needle_opencl_shared_2_block_width_1563755818647911_035.txt
+    initial_value: unset
+    pointer: false
+    pos: 5
+    result: false
+    size: 1
+  cols:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: needle_opencl_shared_2_cols_1563755818647911_035.txt
+    initial_value: unset
+    pointer: false
+    pos: 2
+    result: false
+    size: 1
+  i:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: needle_opencl_shared_2_i_1563755818647911_035.txt
+    initial_value: unset
+    pointer: false
+    pos: 4
+    result: false
+    size: 1
+  matrix_opencl:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: needle_opencl_shared_2_matrix_opencl_1563755818647911_035.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  penalty:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: needle_opencl_shared_2_penalty_1563755818647911_035.txt
+    initial_value: unset
+    pointer: false
+    pos: 3
+    result: false
+    size: 1
+  referrence:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: needle_opencl_shared_2_referrence_1563755818647911_035.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240

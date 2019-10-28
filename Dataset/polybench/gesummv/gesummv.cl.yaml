@@ -1,0 +1,97 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 0
+Branches: 2
+Loops: 1
+num_parameters: 7
+gesummv_kernel:
+  a:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 102400
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 0
+  b:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 102400
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 1
+  x:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 102400
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 2
+  y:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 102400
+    fuzzing: noinit
+    initial_value: unset
+    init_file: unset
+    result: true
+    pos: 3
+  tmp:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 102400
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 4
+  alpha:
+    cl_type: float
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 5
+  beta:
+    cl_type: float
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 6
+  n:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 7

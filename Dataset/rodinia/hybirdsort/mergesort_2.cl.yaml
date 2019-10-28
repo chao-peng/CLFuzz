@@ -1,0 +1,70 @@
+Barriers: 0
+Branches: 14
+Cov: false
+Loops: 2
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 5
+mergeSortPass:
+  constStartAddr:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: mergeSortPass_constStartAddr_1563816944748386_008.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: true
+    size: 10240
+  input:
+    cl_scope: global
+    cl_type: float4
+    const: false
+    fuzzing: random
+    init_file: mergeSortPass_input_1563816944748386_008.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+  nrElems:
+    cl_scope: null
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: mergeSortPass_nrElems_1563816944748386_008.txt
+    initial_value: unset
+    pointer: false
+    pos: 2
+    result: false
+    size: 1
+  result:
+    cl_scope: global
+    cl_type: float4
+    const: false
+    fuzzing: random
+    init_file: mergeSortPass_result_1563816944748386_008.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  threadsPerDiv:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: mergeSortPass_threadsPerDiv_1563816944748386_008.txt
+    initial_value: unset
+    pointer: false
+    pos: 3
+    result: false
+    size: 1

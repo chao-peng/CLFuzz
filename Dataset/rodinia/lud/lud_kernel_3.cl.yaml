@@ -1,0 +1,70 @@
+Barriers: 1
+Branches: 0
+Cov: false
+Loops: 1
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 5
+lud_internal:
+  m:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: lud_internal_m_1563818229979418_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+  matrix_dim:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: lud_internal_matrix_dim_1563818229979418_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 3
+    result: false
+    size: 1
+  offset:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: lud_internal_offset_1563818229979418_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 4
+    result: false
+    size: 1
+  peri_col:
+    cl_scope: local
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: lud_internal_peri_col_1563818229979418_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: false
+    size: 10240
+  peri_row:
+    cl_scope: local
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: lud_internal_peri_row_1563818229979418_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: false
+    size: 10240

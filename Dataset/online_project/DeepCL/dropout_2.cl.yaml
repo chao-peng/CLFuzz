@@ -1,0 +1,59 @@
+Barriers: 0
+Branches: 2
+Cov: false
+Loops: 0
+num_parameters: 4
+backpropNaive:
+  N:
+    cl_scope: null
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: backpropNaive_N_1563666428_097.txt
+    initial_value: unset
+    pointer: false
+    pos: 0
+    result: false
+    size: 1
+  gradOutput:
+    cl_scope: global
+    cl_type: float
+    const: true
+    fuzzing: random
+    init_file: backpropNaive_gradOutput_1563666428_097.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: false
+    size: 10240
+  mask:
+    cl_scope: global
+    cl_type: uchar
+    const: true
+    fuzzing: random
+    init_file: backpropNaive_mask_1563666428_097.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: false
+    size: 10240
+  output:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: backpropNaive_output_1563666428_097.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: true
+    size: 10240
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1

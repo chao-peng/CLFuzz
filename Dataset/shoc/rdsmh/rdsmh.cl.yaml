@@ -1,0 +1,48 @@
+Barriers: 0
+Branches: 2
+Cov: false
+Loops: 0
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 3
+rdsmh_kernel:
+  EG:
+    cl_scope: global
+    cl_type: double
+    const: false
+    fuzzing: random
+    init_file: rdsmh_kernel_EG_1563825831837745_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 102400
+  T:
+    cl_scope: global
+    cl_type: double
+    const: true
+    fuzzing: random
+    init_file: rdsmh_kernel_T_1563825831837745_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 102400
+  TCONV:
+    cl_scope: null
+    cl_type: double
+    const: true
+    fuzzing: random
+    init_file: rdsmh_kernel_TCONV_1563825831837745_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 2
+    result: false
+    size: 1

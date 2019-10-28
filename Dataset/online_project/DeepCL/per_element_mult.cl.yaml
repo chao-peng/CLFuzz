@@ -1,0 +1,48 @@
+Barriers: 0
+Branches: 2
+Cov: false
+Loops: 0
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 3
+per_element_mult_inplace:
+  N:
+    cl_scope: null
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: per_element_mult_inplace_N_1563671672_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 0
+    result: false
+    size: 1
+  source:
+    cl_scope: global
+    cl_type: float
+    const: true
+    fuzzing: random
+    init_file: per_element_mult_inplace_source_1563671672_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: false
+    size: 10240
+  target:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: per_element_mult_inplace_target_1563671672_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240

@@ -1,0 +1,70 @@
+Barriers: 3
+Branches: 10
+Cov: false
+Loops: 2
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 5
+scan_L1_kernel:
+  dataBase:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: scan_L1_kernel_dataBase_1563189695_016.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  data_offset:
+    cl_scope: null
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: scan_L1_kernel_data_offset_1563189695_016.txt
+    initial_value: unset
+    pointer: false
+    pos: 2
+    result: false
+    size: 1
+  interBase:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: scan_L1_kernel_interBase_1563189695_016.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: true
+    size: 10240
+  inter_offset:
+    cl_scope: null
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: scan_L1_kernel_inter_offset_1563189695_016.txt
+    initial_value: unset
+    pointer: false
+    pos: 4
+    result: false
+    size: 1
+  n:
+    cl_scope: null
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: scan_L1_kernel_n_1563189695_016.txt
+    initial_value: unset
+    pointer: false
+    pos: 0
+    result: false
+    size: 1

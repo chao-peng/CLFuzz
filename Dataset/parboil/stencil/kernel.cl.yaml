@@ -1,0 +1,92 @@
+Barriers: 0
+Branches: 2
+Cov: false
+Loops: 0
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 7
+naive_kernel:
+  A0:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: naive_kernel_A0_1563751909981012_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: true
+    size: 10240
+  Anext:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: naive_kernel_Anext_1563751909981012_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: false
+    size: 10240
+  c0:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: naive_kernel_c0_1563751909981012_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 0
+    result: false
+    size: 1
+  c1:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: naive_kernel_c1_1563751909981012_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 1
+    result: false
+    size: 1
+  nx:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: naive_kernel_nx_1563751909981012_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 4
+    result: false
+    size: 1
+  ny:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: naive_kernel_ny_1563751909981012_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 5
+    result: false
+    size: 1
+  nz:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: naive_kernel_nz_1563751909981012_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 6
+    result: false
+    size: 1

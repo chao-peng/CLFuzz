@@ -1,0 +1,48 @@
+Barriers: 0
+Branches: 0
+Cov: false
+Loops: 1
+dim: 0
+global:
+- 1024
+- 1
+- 1
+num_parameters: 3
+larger_sad_calc_16:
+  blk_sad:
+    cl_scope: global
+    cl_type: ushort
+    const: false
+    fuzzing: random
+    init_file: larger_sad_calc_16_blk_sad_1563752896207521_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+  mb_height:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: larger_sad_calc_16_mb_height_1563752896207521_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 2
+    result: false
+    size: 1
+  mb_width:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: larger_sad_calc_16_mb_width_1563752896207521_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 1
+    result: false
+    size: 1
+local:
+- 256
+- 1
+- 1

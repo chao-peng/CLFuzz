@@ -1,0 +1,37 @@
+Barriers: 0
+Branches: 2
+Cov: false
+Loops: 1
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 2
+sum_kernel:
+  Nparticles:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: sum_kernel_Nparticles_1563802314983638_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 1
+    result: false
+    size: 1
+  partial_sums:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: sum_kernel_partial_sums_1563802314983638_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 102400

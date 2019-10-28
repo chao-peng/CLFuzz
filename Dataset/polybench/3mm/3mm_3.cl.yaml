@@ -1,0 +1,75 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 0
+Branches: 2
+Loops: 1
+num_parameters: 5
+mm3_kernel3:
+  E:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 102400
+    fuzzing: random
+    initial_value: unset
+    init_file: mm3_kernel3_E_1562857530_099.txt
+    result: false
+    pos: 0
+  F:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 102400
+    fuzzing: random
+    initial_value: unset
+    init_file: mm3_kernel3_F_1562857530_099.txt
+    result: false
+    pos: 1
+  G:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 102400
+    fuzzing: noinit
+    initial_value: unset
+    init_file: umm3_kernel3_G_1562857530_099.txt
+    result: true
+    pos: 2
+  ni:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: mm3_kernel3_ni_1562857530_099.txt
+    result: false
+    pos: 3
+  nl:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: mm3_kernel3_nl_1562857530_099.txt
+    result: false
+    pos: 4
+  nj:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: mm3_kernel3_nj_1562857530_099.txt
+    result: false
+    pos: 5

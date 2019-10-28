@@ -1,0 +1,59 @@
+Barriers: 0
+Branches: 0
+Cov: false
+Loops: 4
+num_parameters: 3
+compute_step_factor:
+  areas:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: compute_step_factor_areas_1563793366361781_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: true
+    size: 10240
+  nelr:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: compute_step_factor_nelr_1563793366361781_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 0
+    result: false
+    size: 1
+  step_factors:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: compute_step_factor_step_factors_1563793366361781_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: true
+    size: 10240
+  variables:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: compute_step_factor_variables_1563793366361781_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: false
+    size: 10240
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1

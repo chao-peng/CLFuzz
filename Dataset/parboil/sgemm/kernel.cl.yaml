@@ -1,0 +1,114 @@
+Barriers: 0
+Branches: 0
+Cov: false
+Loops: 1
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 9
+mysgemmNT:
+  A:
+    cl_scope: global
+    cl_type: float
+    const: true
+    fuzzing: random
+    init_file: mysgemmNT_A_1563752309115997_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: false
+    size: 102400
+  B:
+    cl_scope: global
+    cl_type: float
+    const: true
+    fuzzing: random
+    init_file: mysgemmNT_B_1563752309115997_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: false
+    size: 102400
+  C:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: mysgemmNT_C_1563752309115997_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: true
+    size: 102400
+  alpha:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: mysgemmNT_alpha_1563752309115997_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 7
+    result: false
+    size: 1
+  beta:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: mysgemmNT_beta_1563752309115997_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 8
+    result: false
+    size: 1
+  k:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: mysgemmNT_k_1563752309115997_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 6
+    result: false
+    size: 1
+  lda:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: mysgemmNT_lda_1563752309115997_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 1
+    result: false
+    size: 1
+  ldb:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: mysgemmNT_ldb_1563752309115997_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 3
+    result: false
+    size: 1
+  ldc:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: mysgemmNT_ldc_1563752309115997_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 5
+    result: false
+    size: 1

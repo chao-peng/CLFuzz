@@ -1,0 +1,86 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 0
+Branches: 2
+Loops: 1
+num_parameters: 7
+doitgen_kernel1:
+  nr:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 0
+  nq:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 1
+  np:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 2
+  A:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 102400
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 3
+  C4:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 102400
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 4
+  sum:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 102400
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: true
+    pos: 5
+  r:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 6

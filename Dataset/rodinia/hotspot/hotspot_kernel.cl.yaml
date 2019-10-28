@@ -1,0 +1,152 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 3
+Branches: 10
+Loops: 1
+num_parameters: 13
+hotspot:
+  iteration:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: hotspot_iteration_1563459242_000.txt
+    result: false
+    pos: 0
+  power:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: hotspot_power_1563459242_000.txt
+    result: true
+    pos: 1
+  temp_src:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: hotspot_temp_src_1563459242_000.txt
+    result: true
+    pos: 2
+  temp_dst:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: hotspot_temp_dst_1563459242_000.txt
+    result: true
+    pos: 3
+  grid_cols:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: hotspot_grid_cols_1563459242_000.txt
+    result: false
+    pos: 4
+  grid_rows:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: hotspot_grid_rows_1563459242_000.txt
+    result: false
+    pos: 5
+  border_cols:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: hotspot_border_cols_1563459242_000.txt
+    result: false
+    pos: 6
+  border_rows:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: hotspot_border_rows_1563459242_000.txt
+    result: false
+    pos: 7
+  Cap:
+    cl_type: float
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: hotspot_Cap_1563459242_000.txt
+    result: false
+    pos: 8
+  Rx:
+    cl_type: float
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: hotspot_Rx_1563459242_000.txt
+    result: false
+    pos: 9
+  Ry:
+    cl_type: float
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: hotspot_Ry_1563459242_000.txt
+    result: false
+    pos: 10
+  Rz:
+    cl_type: float
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: hotspot_Rz_1563459242_000.txt
+    result: false
+    pos: 11
+  step:
+    cl_type: float
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: hotspot_step_1563459242_000.txt
+    result: false
+    pos: 12

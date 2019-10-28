@@ -1,0 +1,389 @@
+Barriers: 41
+Branches: 82
+Cov: false
+Loops: 48
+dim: 0
+global:
+- 1024
+- 1
+- 1
+num_parameters: 34
+kernel_gpu_opencl:
+  checksum:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_checksum_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 33
+    result: true
+    size: 10240
+  d_common:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_common_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: false
+    size: 10240
+  d_conv_all:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_conv_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 14
+    result: false
+    size: 10240
+  d_endoCol:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_endoCol_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: false
+    size: 10240
+  d_endoRow:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_endoRow_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: true
+    size: 10240
+  d_endoT:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_endoT_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 11
+    result: false
+    size: 10240
+  d_epiCol:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_epiCol_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 8
+    result: false
+    size: 10240
+  d_epiRow:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_epiRow_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 7
+    result: false
+    size: 10240
+  d_epiT:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_epiT_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 12
+    result: false
+    size: 10240
+  d_frame:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_frame_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  d_frame_no:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_frame_no_1563815395237143_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 2
+    result: false
+    size: 1
+  d_in2_all:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_in2_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 13
+    result: false
+    size: 10240
+  d_in2_pad_cumv_all:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_in2_pad_cumv_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 15
+    result: false
+    size: 10240
+  d_in2_pad_cumv_sel_all:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_in2_pad_cumv_sel_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 16
+    result: false
+    size: 10240
+  d_in2_sqr_all:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_in2_sqr_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 20
+    result: false
+    size: 10240
+  d_in2_sqr_sub2_all:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_in2_sqr_sub2_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 21
+    result: false
+    size: 10240
+  d_in2_sub2_all:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_in2_sub2_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 19
+    result: false
+    size: 10240
+  d_in2_sub_cumh_all:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_in2_sub_cumh_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 17
+    result: false
+    size: 10240
+  d_in2_sub_cumh_sel_all:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_in2_sub_cumh_sel_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 18
+    result: false
+    size: 10240
+  d_in_mod_temp_all:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_in_mod_temp_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 25
+    result: false
+    size: 10240
+  d_in_sqr_all:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_in_sqr_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 22
+    result: false
+    size: 10240
+  d_mask_conv_all:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_mask_conv_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 24
+    result: false
+    size: 10240
+  d_tEndoColLoc:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_tEndoColLoc_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 6
+    result: false
+    size: 10240
+  d_tEndoRowLoc:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_tEndoRowLoc_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 5
+    result: false
+    size: 10240
+  d_tEpiColLoc:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_tEpiColLoc_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 10
+    result: false
+    size: 10240
+  d_tEpiRowLoc:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_tEpiRowLoc_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 9
+    result: false
+    size: 10240
+  d_tMask_all:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_d_tMask_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 23
+    result: false
+    size: 10240
+  denomT_all:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_denomT_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 32
+    result: false
+    size: 10240
+  in_final_sum_all:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_in_final_sum_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 30
+    result: false
+    size: 10240
+  in_partial_sum_all:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_in_partial_sum_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 26
+    result: false
+    size: 10240
+  in_sqr_final_sum_all:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_in_sqr_final_sum_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 31
+    result: false
+    size: 10240
+  in_sqr_partial_sum_all:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_in_sqr_partial_sum_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 27
+    result: false
+    size: 10240
+  par_max_coo_all:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_par_max_coo_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 29
+    result: false
+    size: 10240
+  par_max_val_all:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kernel_gpu_opencl_par_max_val_all_1563815395237143_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 28
+    result: false
+    size: 10240
+local:
+- 256
+- 1
+- 1

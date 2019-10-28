@@ -1,0 +1,70 @@
+Barriers: 0
+Branches: 4
+Cov: false
+num_parameters: 5
+Fan2:
+  a_dev:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: Fan2_a_dev_1563815143210260_005.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  b_dev:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: Fan2_b_dev_1563815143210260_005.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: true
+    size: 10240
+  m_dev:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: Fan2_m_dev_1563815143210260_005.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+  size:
+    cl_scope: null
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: Fan2_size_1563815143210260_005.txt
+    initial_value: unset
+    pointer: false
+    pos: 3
+    result: false
+    size: 1
+  t:
+    cl_scope: null
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: Fan2_t_1563815143210260_005.txt
+    initial_value: unset
+    pointer: false
+    pos: 4
+    result: false
+    size: 1
+Loops: 0
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1

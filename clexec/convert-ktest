@@ -1,0 +1,213 @@
+#!/usr/bin/env python3
+
+import argparse
+from libCLExec import *
+import binascii
+import io
+import string
+import struct
+import sys
+import glob
+import os
+
+version_no = 3
+
+
+size_of_cl_type = {
+    "int": 4,
+    "uint": 4,
+}
+
+
+def wrap(s, w):
+    return [s[i:i + w] for i in range(0, len(s), w)]
+
+
+class KTestError(Exception):
+    pass
+
+
+class KTest:
+    valid_chars = string.digits + string.ascii_letters + string.punctuation + ' '
+
+    @staticmethod
+    def fromfile(path):
+        try:
+            f = open(path, 'rb')
+        except IOError:
+            print('ERROR: file %s not found' % path)
+            sys.exit(1)
+
+        hdr = f.read(5)
+        if len(hdr) != 5 or (hdr != b'KTEST' and hdr != b'BOUT\n'):
+            raise KTestError('unrecognized file')
+        version, = struct.unpack('>i', f.read(4))
+        if version > version_no:
+            raise KTestError('unrecognized version')
+        numArgs, = struct.unpack('>i', f.read(4))
+        args = []
+        for i in range(numArgs):
+            size, = struct.unpack('>i', f.read(4))
+            args.append(str(f.read(size).decode(encoding='ascii')))
+
+        if version >= 2:
+            symArgvs, = struct.unpack('>i', f.read(4))
+            symArgvLen, = struct.unpack('>i', f.read(4))
+        else:
+            symArgvs = 0
+            symArgvLen = 0
+
+        numObjects, = struct.unpack('>i', f.read(4))
+        objects = []
+        for i in range(numObjects):
+            size, = struct.unpack('>i', f.read(4))
+            name = f.read(size).decode('utf-8')
+            size, = struct.unpack('>i', f.read(4))
+            bytes = f.read(size)
+            objects.append((name, bytes))
+
+        # Create an instance
+        b = KTest(version, path, args, symArgvs, symArgvLen, objects)
+        return b
+
+    def __init__(self, version, path, args, symArgvs, symArgvLen, objects):
+        self.version = version
+        self.path = path
+        self.symArgvs = symArgvs
+        self.symArgvLen = symArgvLen
+        self.args = args
+        self.objects = objects
+
+    def __format__(self, format_spec):
+        sio = io.StringIO()
+        width = str(len(str(max(1, len(self.objects) - 1))))
+
+        # print ktest info
+        print('ktest file : %r' % self.path, file=sio)
+        print('args       : %r' % self.args, file=sio)
+        print('num objects: %r' % len(self.objects), file=sio)
+
+        # format strings
+        fmt = dict()
+        fmt['name'] = "object {0:" + width + "d}: name: '{1}'"
+        fmt['size'] = "object {0:" + width + "d}: size: {1}"
+        fmt['int' ] = "object {0:" + width + "d}: int : {1}"
+        fmt['uint'] = "object {0:" + width + "d}: uint: {1}"
+        fmt['data'] = "object {0:" + width + "d}: data: {1}"
+        fmt['hex' ] = "object {0:" + width + "d}: hex : 0x{1}"
+        fmt['text'] = "object {0:" + width + "d}: text: {1}"
+
+        # print objects
+        for i, (name, data) in enumerate(self.objects):
+            def p(key, arg): print(fmt[key].format(i, arg), file=sio)
+
+            blob = data.rstrip(b'\x00') if format_spec.endswith('trimzeros') else data
+            txt = ''.join(c if c in self.valid_chars else '.' for c in blob.decode('ascii', errors='replace').replace('�', '.'))
+            size = len(data)
+
+            p('name', name)
+            p('size', size)
+            p('data', blob)
+            p('hex', binascii.hexlify(blob).decode('ascii'))
+            for n, m in [(1, 'b'), (2, 'h'), (4, 'i'), (8, 'q')]:
+                if size == n:
+                    p('int', struct.unpack(m, data)[0])
+                    p('uint', struct.unpack(m.upper(), data)[0])
+                    break
+            p('text', txt)
+
+        return sio.getvalue()
+
+    def extract(self, object_names, trim_zeros):
+        hex_return_list = {}
+        data_return_list = {}
+        for name, data in self.objects:
+            if name not in object_names:
+                continue
+            blob = data.rstrip(b'\x00') if trim_zeros else data
+            hex = binascii.hexlify(blob).decode('ascii')
+            hex_return_list[name] = hex
+            data_return_list[name] = data
+
+        return hex_return_list, data_return_list
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Generate OpenCL Tests.")
+    parser.add_argument('info', metavar='info.yaml', type=str, help='kernel information in YAML', default="")
+    parser.add_argument('-f', metavar='ktest', type=str, help="ktest file", default="", required=False)
+    parser.add_argument('-d', metavar="folder", type=str, help="folder", default="", required=False)
+
+    args = parser.parse_args()
+    info_filename = args.info
+    ktest_file = args.f
+    directory = args.d
+
+    if ktest_file == "" and directory == "" or ktest_file != "" and directory!= "":
+        print("provide either ktest file or a directory")
+        exit(-1)
+
+    target_kernel = info_filename[-8]
+    kernel_info = parse_kernel_info(info_filename)
+    for item in list(kernel_info.keys()):
+        if item not in ["Cov", "global", "local", "dim", "Barriers", "Branches", "Loops", "device_ID", "num_parameters",
+                        "num_tests", "platform_ID", "structure_data_filename", "time_stamp"]:
+            target_kernel = item
+    parameter_list = kernel_info[target_kernel]
+    parameter_names = parameter_list.keys()
+
+    ktests = {}
+    if ktest_file != "":
+        ktests[ktest_file] = KTest.fromfile(ktest_file)
+    else:
+        os.chdir(directory)
+        for file in glob.glob("*.ktest"):
+            ktests[file] = KTest.fromfile(file)
+
+    for ktest_filename in ktests:
+        print(ktest_filename)
+        ktest = ktests[ktest_filename]
+        hex_values, data_values = ktest.extract(parameter_names, False)
+
+        for parameter_name in parameter_names:
+            parameter_info = parameter_list[parameter_name]
+            if parameter_info["fuzzing"] != "random":
+                continue
+            parameter_type = parameter_info["cl_type"]
+            parameter_is_pointer = parameter_info["pointer"]
+            if parameter_type in cl_type_to_numpy_type:
+                value = hex_values[parameter_name]
+                data = data_values[parameter_name]
+                if not parameter_is_pointer:
+                    if parameter_type == "int":
+                        pass
+                else:
+                    size = int(parameter_info["size"]) # number of elements in the array
+                    length = len(value) # length of the hex value in total
+                    hex_list = wrap(value, 2)
+                    array = []
+                    if parameter_type == "int":
+                        size_of_element = size_of_cl_type["int"]
+                        for i in range(0, len(hex_list), size_of_element):
+                            element_hex = ""
+                            for j in range(size_of_element):
+                                element_hex = hex_list[i + j] + element_hex
+                            element_hex = "0x" + element_hex
+                            element_value = int(element_hex, 16)
+                            if element_value >= 0x80000000:
+                                value -= 0x100000000
+                            array.append(element_value)
+                    elif parameter_type == "uint":
+                        size_of_element = size_of_cl_type["int"]
+                        for i in range(0, len(hex_list), size_of_element):
+                            element_hex = ""
+                            for j in range(size_of_element):
+                                element_hex = hex_list[i + j] + element_hex
+                            element_hex = "0x" + element_hex
+                            element_value = int(element_hex, 16)
+                            array.append(element_value)
+
+
+
+if __name__ == "__main__":
+    main()

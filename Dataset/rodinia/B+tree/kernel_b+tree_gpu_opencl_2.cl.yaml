@@ -1,0 +1,140 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 3
+Branches: 14
+Loops: 1
+num_parameters: 10
+findRangeK:
+  height:
+    cl_type: long
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: initial_value
+    initial_value: 10000
+    init_file: unset
+    result: false
+    pos: 0
+  knodesD:
+    cl_type: knode
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    knode_key0_name: location
+    knode_key1_name: indices [DEFAULT_ORDER + 1]
+    knode_key2_name: keys [DEFAULT_ORDER + 1]
+    knode_key3_name: is_leaf
+    knode_key4_name: num_keys
+    knode_key0_type: int
+    knode_key1_type: int
+    knode_key2_type: int
+    knode_key3_type: bool
+    knode_key4_type: int
+    pos: 1
+  knodes_elem:
+    cl_type: long
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 2
+  currKnodeD:
+    cl_type: long
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 3
+  offsetD:
+    cl_type: long
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 4
+  lastKnodeD:
+    cl_type: long
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 5
+  offset_2D:
+    cl_type: long
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 6
+  startD:
+    cl_type: int
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 7
+  endD:
+    cl_type: int
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 8
+  RecstartD:
+    cl_type: int
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: true
+    pos: 9
+  ReclenD:
+    cl_type: int
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: true
+    pos: 10

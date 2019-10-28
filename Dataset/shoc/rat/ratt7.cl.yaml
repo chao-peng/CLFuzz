@@ -1,0 +1,64 @@
+Cov: false
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 0
+Branches: 0
+Loops: 0
+num_parameters: 5
+ratt7_kernel:
+  T:
+    cl_type: double
+    cl_scope: global
+    const: true
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 0
+  RF:
+    cl_type: double
+    cl_scope: global
+    const: true
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 1
+  RB:
+    cl_type: double
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 2
+  EG:
+    cl_type: double
+    cl_scope: global
+    const: true
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 3
+  TCONV:
+    cl_type: double
+    cl_scope:
+    const: true
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 4

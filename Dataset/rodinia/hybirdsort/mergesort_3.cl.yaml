@@ -1,0 +1,64 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 0
+Branches: 2
+Loops: 0
+num_parameters: 5
+mergepack:
+  orig:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: mergepack_orig_1563461608_029.txt
+    result: false
+    pos: 0
+  result:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: mergepack_result_1563461608_029.txt
+    result: true
+    pos: 1
+  constStartAddr:
+    cl_type: int
+    cl_scope: constant
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: mergepack_constStartAddr_1563461608_029.txt
+    result: false
+    pos: 2
+  nullElems:
+    cl_type: int
+    cl_scope: constant
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: mergepack_nullElems_1563461608_029.txt
+    result: false
+    pos: 3
+  finalStartAddr:
+    cl_type: int
+    cl_scope: constant
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: mergepack_finalStartAddr_1563461608_029.txt
+    result: false
+    pos: 4

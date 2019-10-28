@@ -1,0 +1,81 @@
+Barriers: 0
+Branches: 0
+Cov: false
+Loops: 1
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 6
+ratx_kernel:
+  C:
+    cl_scope: global
+    cl_type: double
+    const: true
+    fuzzing: random
+    init_file: ratx_kernel_C_1563825779317570_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  RB:
+    cl_scope: global
+    cl_type: double
+    const: false
+    fuzzing: random
+    init_file: ratx_kernel_RB_1563825779317570_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: true
+    size: 10240
+  RF:
+    cl_scope: global
+    cl_type: double
+    const: false
+    fuzzing: random
+    init_file: ratx_kernel_RF_1563825779317570_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: true
+    size: 10240
+  RKLOW:
+    cl_scope: global
+    cl_type: double
+    const: true
+    fuzzing: random
+    init_file: ratx_kernel_RKLOW_1563825779317570_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: true
+    size: 10240
+  T:
+    cl_scope: global
+    cl_type: double
+    const: true
+    fuzzing: random
+    init_file: ratx_kernel_T_1563825779317570_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+  TCONV:
+    cl_scope: null
+    cl_type: double
+    const: true
+    fuzzing: random
+    init_file: ratx_kernel_TCONV_1563825779317570_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 5
+    result: false
+    size: 1

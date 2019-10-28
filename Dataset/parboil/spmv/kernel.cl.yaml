@@ -1,0 +1,103 @@
+Barriers: 0
+Branches: 2
+Cov: false
+Loops: 1
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 8
+spmv_jds_naive:
+  d_data:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: spmv_jds_naive_d_data_1562329340_002.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: false
+    size: 10240
+  d_index:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: spmv_jds_naive_d_index_1562329340_002.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: false
+    size: 10240
+  d_perm:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: spmv_jds_naive_d_perm_1562329340_002.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: false
+    size: 10240
+  dim:
+    cl_scope: null
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: spmv_jds_naive_dim_1562329340_002.txt
+    initial_value: unset
+    pointer: false
+    pos: 5
+    result: false
+    size: 1
+  dst_vector:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: spmv_jds_naive_dst_vector_1562329340_002.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+  jds_ptr_int:
+    cl_scope: constant
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: spmv_jds_naive_jds_ptr_int_1562329340_002.txt
+    initial_value: unset
+    pointer: true
+    pos: 6
+    result: false
+    size: 10240
+  sh_zcnt_int:
+    cl_scope: constant
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: spmv_jds_naive_sh_zcnt_int_1562329340_002.txt
+    initial_value: unset
+    pointer: true
+    pos: 7
+    result: false
+    size: 10240
+  x_vec:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: spmv_jds_naive_x_vec_1562329340_002.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: false
+    size: 10240

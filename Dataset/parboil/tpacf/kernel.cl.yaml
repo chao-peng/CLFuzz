@@ -1,0 +1,70 @@
+Barriers: 1
+Branches: 12
+Cov: false
+Loops: 3
+dim: 0
+num_parameters: 5
+gen_hists:
+  NUM_ELEMENTS:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: gen_hists_NUM_ELEMENTS_1563751338884650_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 4
+    result: false
+    size: 1
+  NUM_SETS:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: gen_hists_NUM_SETS_1563751338884650_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 3
+    result: false
+    size: 1
+  all_x_data:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: gen_hists_all_x_data_1563751338884650_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: false
+    size: 10240
+  dev_binb:
+    cl_scope: constant
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: gen_hists_dev_binb_1563751338884650_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: false
+    size: 10240
+  histograms:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: gen_hists_histograms_1563751338884650_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1

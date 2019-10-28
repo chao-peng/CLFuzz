@@ -1,0 +1,86 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 0
+Branches: 6
+Loops: 1
+num_parameters: 7
+particle_kernel:
+  arrayX:
+    cl_type: double
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: particle_kernel_arrayX_1563467406_000.txt
+    result: false
+    pos: 0
+  arrayY:
+    cl_type: double
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: particle_kernel_arrayY_1563467406_000.txt
+    result: false
+    pos: 1
+  CDF:
+    cl_type: double
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: particle_kernel_CDF_1563467406_000.txt
+    result: false
+    pos: 2
+  u:
+    cl_type: double
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: particle_kernel_u_1563467406_000.txt
+    result: false
+    pos: 3
+  xj:
+    cl_type: double
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: particle_kernel_xj_1563467406_000.txt
+    result: true
+    pos: 4
+  yj:
+    cl_type: double
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: particle_kernel_yj_1563467406_000.txt
+    result: true
+    pos: 5
+  Nparticles:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: particle_kernel_Nparticles_1563467406_000.txt
+    result: false
+    pos: 6

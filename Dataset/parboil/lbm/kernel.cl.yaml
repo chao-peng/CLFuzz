@@ -1,0 +1,37 @@
+Barriers: 0
+Branches: 4
+Cov: true
+Loops: 0
+dim: 0
+global:
+- 256
+- 4
+- 1
+local:
+- 128
+- 2
+- 1
+num_parameters: 2
+performStreamCollide_kernel:
+  dstGrid:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: performStreamCollide_kernel_dstGrid_1563139997_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  srcGrid:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: performStreamCollide_kernel_srcGrid_1563139997_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: false
+    size: 10240

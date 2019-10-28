@@ -1,0 +1,92 @@
+Barriers: 0
+Branches: 0
+Cov: false
+Loops: 3
+num_parameters: 7
+convolve_imagecubes_int:
+  filters:
+    cl_scope: global
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: convolve_imagecubes_int_filters_1563668212_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 5
+    result: false
+    size: 10240
+  images:
+    cl_scope: global
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: convolve_imagecubes_int_images_1563668212_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: false
+    size: 10240
+  output:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: convolve_imagecubes_int_output_1563668212_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 6
+    result: true
+    size: 10240
+  p_filterSize:
+    cl_scope: global
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: convolve_imagecubes_int_p_filterSize_1563668212_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: false
+    size: 10240
+  p_imageSize:
+    cl_scope: global
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: convolve_imagecubes_int_p_imageSize_1563668212_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: false
+    size: 10240
+  p_numFilters:
+    cl_scope: global
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: convolve_imagecubes_int_p_numFilters_1563668212_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: false
+    size: 10240
+  p_numInputPlanes:
+    cl_scope: global
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: convolve_imagecubes_int_p_numInputPlanes_1563668212_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: false
+    size: 10240
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1

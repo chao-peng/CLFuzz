@@ -1,0 +1,37 @@
+Barriers: 2
+Branches: 2
+Cov: false
+Loops: 1
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 2
+scan_inter2_kernel:
+  data:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: scan_inter2_kernel_data_1563193844_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+  iter:
+    cl_scope: null
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: scan_inter2_kernel_iter_1563193844_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 1
+    result: false
+    size: 1

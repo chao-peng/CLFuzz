@@ -1,0 +1,37 @@
+Barriers: 0
+Branches: 0
+Cov: false
+Loops: 0
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 2
+ratx4_kernel:
+  C:
+    cl_scope: global
+    cl_type: double
+    const: true
+    fuzzing: random
+    init_file: ratx4_kernel_C_1563825397272026_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+  RB:
+    cl_scope: global
+    cl_type: double
+    const: false
+    fuzzing: random
+    init_file: ratx4_kernel_RB_1563825397272026_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240

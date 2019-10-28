@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+import argparse
+from clexec_lib import *
+import os
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Generate OpenCL schedules.")
+    parser.add_argument('-info', metavar='info', type=str, help='kernel information in YAML', default="", required=False)
+    parser.add_argument('-g', metavar="gsize", type=str, help="schedule", default="", required=False)
+    parser.add_argument('-l', metavar="lsize", type=str, help="schedule", default="", required=False)
+    parser.add_argument('-c', metavar="clean", type=bool, help="delete all schedule files in this folder",
+                        default=False, required=False)
+    parser.add_argument('-p', metavar='print', type=str, help="print schedule info", default="", required=False)
+    parser.add_argument('-n', metavar='number', type=int, help="number of generated schedules",default=1, required=False)
+
+    args = parser.parse_args()
+    info_filename = args.info
+    global_size_str = args.g
+    local_size_str = args.l
+    clean = args.c
+    file_to_print = args.p
+    num_schedules = args.n
+
+    if file_to_print != "":
+        schedule_from_file = np.load(file_to_print)
+        print(schedule_from_file)
+        exit(0)
+
+    if clean:
+        os.system("rm -fr *_schedule_*.npy")
+        print("Generated schedule files are removed")
+        exit(0)
+
+    if info_filename == "" and (global_size_str == "" or local_size_str == ""):
+        print("Please provide either yaml file or specify the work size")
+        exit(-1)
+
+    if info_filename != "":
+        kernel_info = parse_kernel_info(info_filename)
+        global_size = kernel_info["global"]
+        local_size = kernel_info["local"]
+    else:
+        global_size_arr = global_size_str.strip().split(',')
+        local_size_arr = local_size_str.strip().split(',')
+        global_size = [1, 1, 1]
+        local_size = [1, 1, 1]
+        for i in range(len(global_size_arr)):
+            global_size[i] = int(global_size_arr[i])
+        for i in range(len(local_size_arr)):
+            local_size[i] = int(local_size_arr[i])
+
+    filename_prefix = info_filename[:-8] + "_schedule_"
+    for i in range(num_schedules):
+        filename = filename_prefix + str(i).zfill(3)
+        schedule = generate_random_schedule(global_size, local_size)
+        np.save(filename, schedule)
+        print("Schedule generated and saved to file " + filename + ".npy")
+
+if __name__ == "__main__":
+    main()

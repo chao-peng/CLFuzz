@@ -1,0 +1,81 @@
+Barriers: 0
+Branches: 0
+Cov: false
+Loops: 0
+num_parameters: 6
+compute_flux_contributions:
+  fc_density_energy:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: compute_flux_contributions_fc_density_energy_1563793947095036_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 5
+    result: true
+    size: 10240
+  fc_momentum_x:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: compute_flux_contributions_fc_momentum_x_1563793947095036_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: true
+    size: 10240
+  fc_momentum_y:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: compute_flux_contributions_fc_momentum_y_1563793947095036_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: true
+    size: 10240
+  fc_momentum_z:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: compute_flux_contributions_fc_momentum_z_1563793947095036_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: true
+    size: 10240
+  nelr:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: compute_flux_contributions_nelr_1563793947095036_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 0
+    result: false
+    size: 1
+  variables:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: compute_flux_contributions_variables_1563793947095036_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1

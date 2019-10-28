@@ -1,0 +1,92 @@
+Barriers: 0
+Branches: 34
+Cov: true
+Loops: 9
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 7
+nqueen:
+  board_size:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: nqueen_board_size_1563754566190907_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 0
+    result: false
+    size: 1
+  forbidden:
+    cl_scope: constant
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: nqueen_forbidden_1563754566190907_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 6
+    result: false
+    size: 1024
+  level:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: nqueen_level_1563754566190907_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 1
+    result: false
+    size: 1
+  params:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: nqueen_params_1563754566190907_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: false
+    size: 1024
+  pitch:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: nqueen_pitch_1563754566190907_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 3
+    result: false
+    size: 1
+  results:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: nqueen_results_1563754566190907_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 5
+    result: true
+    size: 1024
+  threads:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: nqueen_threads_1563754566190907_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 2
+    result: false
+    size: 1

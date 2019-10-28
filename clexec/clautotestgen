@@ -1,0 +1,131 @@
+#!/usr/bin/env python3
+import argparse
+import time
+from libCLExec import *
+import datetime
+
+
+def full_cov_achieved(cov):
+    branch = cov["branch"] if "branch" in cov else None
+    loop = cov["loop"] if "loop" in cov else None
+    barrier = cov["barrier"] if "barrier" in cov else None
+
+    num_branches = branch.size if branch is not None else 0
+    num_loops = loop.size if loop is not None else 0
+    num_barriers = barrier.size if barrier is not None else 0
+
+    covered_branches = np.count_nonzero(branch == 1) if branch is not None else 0
+    covered_loops = np.count_nonzero(loop != 0) if loop is not None else 0
+    covered_barriers = np.count_nonzero(barrier == 0) if barrier is not None else 0
+
+    achieved = True
+
+    if num_branches != 0 and num_branches != covered_branches: 
+        achieved = False
+    if num_loops != 0 and num_loops != covered_loops:
+        achieved = False
+    if num_barriers != 0 and num_barriers != covered_barriers:
+        achieved = False
+    return achieved
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Execute OpenCL kernels.")
+    parser.add_argument('file', metavar='kernel_file', type=str,  help="kernel file name")
+    parser.add_argument('-p', metavar='platformID', type=int, help='platform ID', required=False, default=0)
+    parser.add_argument('-d', metavar='deviceID', type=int, help='device ID', required=False, default=0)
+    parser.add_argument('-max', metavar='max_tests', type=int, help='max number of tests', required=False, default=100)
+    args = parser.parse_args()
+
+    kernel_filename = args.file
+    platform_id = args.p
+    device_id = args.d
+    max_num_tests = args.max
+
+    info_filename = kernel_filename + ".yaml"
+
+    kernel_info = parse_kernel_info(info_filename)
+
+    #os.system("cp " + info_filename +" Copy_"+info_filename )
+    #target_kernel = list(kernel_info.keys())[-1]
+    '''
+    if list(kernel_info.keys())[0] == "Cov":
+        target_kernel = list(kernel_info.keys())[-1]
+    elif list(kernel_info.keys())[0] == "Barriers":
+        target_kernel = list(kernel_info.keys())[4]
+    '''
+    target_kernel = kernel_info["kernel_name"] #kernel_filename[:-3]
+    #for item in list(kernel_info.keys()):
+    #    if item not in ["Cov","global","local","dim","Barriers","Branches","Loops","device_ID","num_parameters","num_tests","platform_ID","structure_data_filename","time_stamp"]:
+    #        target_kernel = item
+    #print(kernel_info)
+    #print(target_kernel)
+    kernel_info["platform_ID"] = platform_id
+    kernel_info["device_ID"] = device_id
+
+    num_generated_tests = 0
+    cov = {}
+    total_time_elapsed = 0.
+    while num_generated_tests < max_num_tests:
+        start = time.time()
+        test_file = test_generation(target_kernel, kernel_info, 1, base_num=num_generated_tests)
+        end = time.time()
+        time_elapsed = end - start
+        test_file = test_file[0]
+        print(test_file)
+        time_stamp = str(int(time.time())) + str(datetime.datetime.now().strftime('%f'))
+        cov[num_generated_tests] = execute_kernel(target_kernel, kernel_filename, kernel_info, test_file, time_stamp, measure_cov=True, with_schedule=False)
+        final_cov = aggregate_cov(cov)
+        num_generated_tests = num_generated_tests + 1
+        print(time_elapsed)
+        total_time_elapsed += time_elapsed
+        if full_cov_achieved(final_cov):
+            break
+
+    print(num_generated_tests)
+    print(total_time_elapsed)
+    pretty_print_cov(final_cov, mode="complex")
+
+
+"""
+    if measure_coverage and num_tests != -1:
+        max_branch = 0
+        max_branch_id = 0
+        for test_id in range(num_tests):
+            cov = execute_kernel(target_kernel, kernel_filename, kernel_info, test_id)
+            branch_cov = cov["branch"]
+            loop_cov = cov["loop"]
+            barrier_cov = cov["barrier"]
+
+            #if(branch_cov.all()!=None):
+            print("branch")
+            if branch_cov is not None:
+                print("Branch coverage:",branch_cov.mean()*2)
+                if(branch_cov.mean()>max_branch and branch_cov.mean() <= 1 ):
+                    max_branch = branch_cov.mean()
+                    max_branch_id = test_id
+            print(branch_cov)
+            #if(loop_cov.all()!=None):
+            print("loop_cov:")
+            print(loop_cov)
+            #if(barrier_cov.all()!=None):
+            print("barrier:")
+            print(barrier_cov)
+            file_name = "A_covinfo_" + kernel_info["time_stamp"] + "_" + str(test_id).zfill(3) +".txt"
+            f = open(file_name,'w')
+            f.write("test id: "+str(test_id)+"Branch coverage:\n" + str(branch_cov) + "\n" )
+            if branch_cov is not None:
+                f.write(str(branch_cov.mean()*2) + "\n")
+            f.write("Loop_cov:\n" + str(loop_cov) +"\n" )
+            f.write("Barrier:\n" + str(barrier_cov) +"\n" )
+            f.close()
+            #print(loop_cov.mean())
+        if kernel_info["Cov"] :
+            f = open("A_"+kernel_info["time_stamp"]+"_"+str(max_branch_id)+"_.txt",'w')
+            f.write("largest branch coverage test id: "+ str(max_branch_id).zfill(3)+": "+str(max_branch*2))
+            f.close()
+            print("largest branch coverage test id: "+ kernel_info["time_stamp"]+"_"+str(max_branch_id).zfill(3)+": "+str(max_branch*2))
+"""
+
+if __name__ == "__main__":
+    main()

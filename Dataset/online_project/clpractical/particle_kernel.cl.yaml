@@ -1,0 +1,119 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 0
+Branches: 34
+Loops: 0
+num_parameters: 10
+particle_kernel:
+  pos:
+    cl_type: float4
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: true
+    pos: 0
+  vel:
+    cl_type: float4
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: true
+    pos: 1
+  iFunction:
+    cl_type: int
+    cl_scope:
+    const: true
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 2
+  uiParticleCount:
+    cl_type: uint
+    cl_scope:
+    const: true
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 3
+  fDeltaTime:
+    cl_type: float
+    cl_scope:
+    const: true
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 4
+  f3BoundingBox:
+    cl_type: float4
+    cl_scope:
+    const: true
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 5
+  fGravity:
+    cl_type: float
+    cl_scope:
+    const: true
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 6
+  iForceActive:
+    cl_type: int
+    cl_scope:
+    const: true
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 7
+  fForce:
+    cl_type: float
+    cl_scope:
+    const: true
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 8
+  f4ForcePos:
+    cl_type: float4
+    cl_scope:
+    const: true
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: unset
+    result: false
+    pos: 9

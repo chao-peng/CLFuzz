@@ -1,0 +1,48 @@
+Barriers: 0
+Branches: 0
+Cov: false
+Loops: 1
+num_parameters: 3
+bucketprefixoffset:
+  blocks:
+    cl_scope: null
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: bucketprefixoffset_blocks_1563816455448733_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 2
+    result: false
+    size: 1
+  d_offsets:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: bucketprefixoffset_d_offsets_1563816455448733_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  d_prefixoffsets:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: bucketprefixoffset_d_prefixoffsets_1563816455448733_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1

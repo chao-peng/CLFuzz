@@ -1,0 +1,110 @@
+#!/usr/bin/env python3
+import yaml
+import argparse
+import time
+import os
+from clexec_lib import *
+import datetime
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Execute OpenCL kernels.")
+    parser.add_argument('file', metavar='kernel_file', type=str,  help="kernel file name")
+    parser.add_argument('--info', metavar='info', type=str, help='kernel information in YAML', required=True)
+    parser.add_argument('--kernel', metavar='kernel', type=str, help='kernel under test', required=False)
+    parser.add_argument('--p', metavar='platformID', type=int, help='platform ID', required=False, default=0)
+    parser.add_argument('--d', metavar='deviceID', type=int, help='device ID', required=False, default=0)
+    parser.add_argument('--n', metavar="num_tests", type=int, help="number of tests", required=True)
+    parser.add_argument('--data', metavar="structure_data", type=str, help="structure data filename", required=False,
+                        default=True)
+    parser.add_argument('--autorun', metavar="auto_run", type=bool, help="auto execution", default=True, required=False)
+    parser.add_argument('--schedule', metavar="schedule", type=str, help="schedule", default="", required=False)
+
+    args = parser.parse_args()
+    kernel_filename = args.file
+    info_filename = args.info
+    target_kernel = args.kernel
+    platform_id = args.p
+    device_id = args.d
+    num_tests = args.n
+    data = args.data
+    schedule = args.schedule
+    if data:
+        structure_data_filename = kernel_filename + ".dat"
+    else:
+        structure_data_filename = ""
+    auto_run = args.autorun
+    kernel_info = parse_kernel_info(info_filename)
+
+    #os.system("cp " + info_filename +" Copy_"+info_filename )
+    #target_kernel = list(kernel_info.keys())[-1]
+    '''
+    if list(kernel_info.keys())[0] == "Cov":
+        target_kernel = list(kernel_info.keys())[-1]
+    elif list(kernel_info.keys())[0] == "Barriers":
+        target_kernel = list(kernel_info.keys())[4]
+    '''
+    for item in list(kernel_info.keys()):
+        if item not in ["Cov","global","local","dim","Barriers","Branches","Loops","device_ID","num_parameters","num_tests","platform_ID","structure_data_filename","time_stamp"]:
+            target_kernel = item
+    #print(kernel_info)
+    #print(target_kernel)
+    time_stamp = str(int(time.time())) +str(datetime.datetime.now().strftime('%f'))
+    kernel_info["platform_ID"] = platform_id
+    kernel_info["device_ID"] = device_id
+    kernel_info["num_tests"] = num_tests
+    kernel_info["time_stamp"] = time_stamp
+    kernel_info["structure_data_filename"] = structure_data_filename
+    #print(kernel_info)
+    if kernel_info["Cov"] and structure_data_filename == "":
+        print("Code coverage measurement is required but no structure data file provided")
+        exit(-1)
+    preparation(target_kernel, kernel_info, num_tests)
+    new_yaml_filename = target_kernel + "_" + time_stamp + ".yaml"
+    save_yaml_file(kernel_info, new_yaml_filename)
+    if auto_run:
+        if schedule != "":
+            schedule_from_file = np.load(schedule)
+            for test_id in range(num_tests):
+                execute_kernel_with_schedule(target_kernel, kernel_filename, kernel_info, test_id, schedule_from_file)
+        else:
+            max_branch = 0
+            max_branch_id = 0
+            for test_id in range(num_tests):
+                cov = execute_kernel(target_kernel, kernel_filename, kernel_info, test_id)
+                branch_cov = cov["branch"]
+                loop_cov = cov["loop"]
+                barrier_cov = cov["barrier"]
+
+                #if(branch_cov.all()!=None):
+                print("branch")
+                if branch_cov is not None:
+                    print("Branch coverage:",branch_cov.mean()*2)
+                    if(branch_cov.mean()>max_branch and branch_cov.mean() <= 1 ):
+                        max_branch = branch_cov.mean()
+                        max_branch_id = test_id
+                print(branch_cov)
+                #if(loop_cov.all()!=None):
+                print("loop_cov:")
+                print(loop_cov)
+                #if(barrier_cov.all()!=None):
+                print("barrier:")
+                print(barrier_cov)
+                file_name = "A_covinfo_" + kernel_info["time_stamp"] + "_" + str(test_id).zfill(3) +".txt"
+                f = open(file_name,'w')
+                f.write("test id: "+str(test_id)+"Branch coverage:\n" + str(branch_cov) + "\n" )
+                if branch_cov is not None:
+                    f.write(str(branch_cov.mean()*2) + "\n")
+                f.write("Loop_cov:\n" + str(loop_cov) +"\n" )
+                f.write("Barrier:\n" + str(barrier_cov) +"\n" )
+                f.close()
+                #print(loop_cov.mean())
+            if kernel_info["Cov"] :
+                f = open("A_"+kernel_info["time_stamp"]+"_"+str(max_branch_id)+"_.txt",'w')
+                f.write("largest branch coverage test id: "+ str(max_branch_id).zfill(3)+": "+str(max_branch*2))
+                f.close()
+                print("largest branch coverage test id: "+ kernel_info["time_stamp"]+"_"+str(max_branch_id).zfill(3)+": "+str(max_branch*2))
+
+
+if __name__ == "__main__":
+    main()

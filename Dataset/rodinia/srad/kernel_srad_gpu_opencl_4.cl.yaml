@@ -1,0 +1,180 @@
+Barriers: 0
+Branches: 8
+Cov: true
+Loops: 0
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 15
+srad_kernel:
+  d_I:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: srad_kernel_d_I_1563469466_069.txt
+    initial_value: unset
+    pointer: true
+    pos: 14
+    result: false
+    size: 10240
+  d_Nc:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: srad_kernel_d_Nc_1563469466_069.txt
+    initial_value: unset
+    pointer: false
+    pos: 2
+    result: false
+    size: 1
+  d_Ne:
+    cl_scope: null
+    cl_type: long
+    const: false
+    fuzzing: random
+    init_file: srad_kernel_d_Ne_1563469466_069.txt
+    initial_value: unset
+    pointer: false
+    pos: 3
+    result: false
+    size: 1
+  d_Nr:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: srad_kernel_d_Nr_1563469466_069.txt
+    initial_value: unset
+    pointer: false
+    pos: 1
+    result: false
+    size: 1
+  d_c:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: srad_kernel_d_c_1563469466_069.txt
+    initial_value: unset
+    pointer: true
+    pos: 13
+    result: true
+    size: 10240
+  d_dE:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: srad_kernel_d_dE_1563469466_069.txt
+    initial_value: unset
+    pointer: true
+    pos: 10
+    result: true
+    size: 10240
+  d_dN:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: srad_kernel_d_dN_1563469466_069.txt
+    initial_value: unset
+    pointer: true
+    pos: 8
+    result: true
+    size: 10240
+  d_dS:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: srad_kernel_d_dS_1563469466_069.txt
+    initial_value: unset
+    pointer: true
+    pos: 9
+    result: true
+    size: 10240
+  d_dW:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: srad_kernel_d_dW_1563469466_069.txt
+    initial_value: unset
+    pointer: true
+    pos: 11
+    result: false
+    size: 10240
+  d_iN:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: srad_kernel_d_iN_1563469466_069.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: false
+    size: 10240
+  d_iS:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: srad_kernel_d_iS_1563469466_069.txt
+    initial_value: unset
+    pointer: true
+    pos: 5
+    result: false
+    size: 10240
+  d_jE:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: srad_kernel_d_jE_1563469466_069.txt
+    initial_value: unset
+    pointer: true
+    pos: 6
+    result: false
+    size: 10240
+  d_jW:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: srad_kernel_d_jW_1563469466_069.txt
+    initial_value: unset
+    pointer: true
+    pos: 7
+    result: false
+    size: 10240
+  d_lambda:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: srad_kernel_d_lambda_1563469466_069.txt
+    initial_value: unset
+    pointer: false
+    pos: 0
+    result: false
+    size: 1
+  d_q0sqr:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: srad_kernel_d_q0sqr_1563469466_069.txt
+    initial_value: unset
+    pointer: false
+    pos: 12
+    result: false
+    size: 1

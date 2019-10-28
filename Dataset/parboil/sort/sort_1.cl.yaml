@@ -1,0 +1,92 @@
+Barriers: 1
+Branches: 8
+Cov: false
+Loops: 1
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 7
+splitRearrange:
+  histo:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: splitRearrange_histo_1563194079_019.txt
+    initial_value: unset
+    pointer: true
+    pos: 6
+    result: false
+    size: 10240
+  iter:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: splitRearrange_iter_1563194079_019.txt
+    initial_value: unset
+    pointer: false
+    pos: 1
+    result: false
+    size: 1
+  keys_i:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: splitRearrange_keys_i_1563194079_019.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: false
+    size: 10240
+  keys_o:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: splitRearrange_keys_o_1563194079_019.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: true
+    size: 10240
+  numElems:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: splitRearrange_numElems_1563194079_019.txt
+    initial_value: unset
+    pointer: false
+    pos: 0
+    result: false
+    size: 1
+  values_i:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: splitRearrange_values_i_1563194079_019.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: false
+    size: 10240
+  values_o:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: splitRearrange_values_o_1563194079_019.txt
+    initial_value: unset
+    pointer: true
+    pos: 5
+    result: true
+    size: 10240

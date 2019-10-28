@@ -1,0 +1,125 @@
+Barriers: 0
+Branches: 4
+Cov: false
+num_parameters: 10
+GICOV_kernel:
+  c_cos_angle:
+    cl_scope: constant
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: GICOV_kernel_c_cos_angle_1563817878133750_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: true
+    size: 10240
+  c_sin_angle:
+    cl_scope: constant
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: GICOV_kernel_c_sin_angle_1563817878133750_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: true
+    size: 10240
+  c_tX:
+    cl_scope: constant
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: GICOV_kernel_c_tX_1563817878133750_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 5
+    result: true
+    size: 10240
+  c_tY:
+    cl_scope: constant
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: GICOV_kernel_c_tY_1563817878133750_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 6
+    result: true
+    size: 10240
+  gicov:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: GICOV_kernel_gicov_1563817878133750_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 7
+    result: true
+    size: 10240
+  grad_m:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: GICOV_kernel_grad_m_1563817878133750_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 0
+    result: false
+    size: 1
+  grad_x:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: GICOV_kernel_grad_x_1563817878133750_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  grad_y:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: GICOV_kernel_grad_y_1563817878133750_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: true
+    size: 10240
+  height:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: GICOV_kernel_height_1563817878133750_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 9
+    result: false
+    size: 1
+  width:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: GICOV_kernel_width_1563817878133750_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 8
+    result: false
+    size: 1
+Loops: 2
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1

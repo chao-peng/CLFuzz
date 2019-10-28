@@ -1,0 +1,81 @@
+Barriers: 0
+Branches: 4
+Cov: false
+Loops: 2
+num_parameters: 6
+convolute:
+  HALF_FILTER_SIZE:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: convolute_HALF_FILTER_SIZE_1563753696984156_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 3
+    result: false
+    size: 1
+  IMAGE_H:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: convolute_IMAGE_H_1563753696984156_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 4
+    result: false
+    size: 1
+  IMAGE_W:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: convolute_IMAGE_W_1563753696984156_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 5
+    result: false
+    size: 1
+  filter:
+    cl_scope: global
+    cl_type: float
+    const: true
+    fuzzing: random
+    init_file: convolute_filter_1563753696984156_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: true
+    size: 10240
+  input:
+    cl_scope: global
+    cl_type: float
+    const: true
+    fuzzing: random
+    init_file: convolute_input_1563753696984156_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  output:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: convolute_output_1563753696984156_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1

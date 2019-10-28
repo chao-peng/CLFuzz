@@ -1,0 +1,356 @@
+Barriers: 0
+Branches: 16
+Cov: true
+Loops: 2
+num_parameters: 31
+calc_potential_single_step_dev:
+  A:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_A_1563795013038958_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 2
+    result: false
+    size: 1
+  at_c_s:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_at_c_s_1563795013038958_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 20
+    result: false
+    size: 10240
+  at_x_s:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_at_x_s_1563795013038958_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 21
+    result: false
+    size: 10240
+  at_y_s:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_at_y_s_1563795013038958_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 22
+    result: false
+    size: 10240
+  at_z_s:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_at_z_s_1563795013038958_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 23
+    result: false
+    size: 10240
+  atom_addrs:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_atom_addrs_1563795013038958_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 11
+    result: false
+    size: 10240
+  atom_lengths:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_atom_lengths_1563795013038958_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 12
+    result: false
+    size: 10240
+  diel_ext:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_diel_ext_1563795013038958_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 5
+    result: false
+    size: 1
+  diel_int:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_diel_int_1563795013038958_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 4
+    result: false
+    size: 1
+  eye:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_eye_1563795013038958_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 9
+    result: false
+    size: 1
+  ion_exc_rad:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_ion_exc_rad_1563795013038958_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 7
+    result: false
+    size: 1
+  nres:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_nres_1563795013038958_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 0
+    result: false
+    size: 1
+  nvert:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_nvert_1563795013038958_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 1
+    result: false
+    size: 1
+  phiType:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_phiType_1563795013038958_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 8
+    result: false
+    size: 1
+  proj_len:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_proj_len_1563795013038958_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 3
+    result: false
+    size: 1
+  r:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_r_1563795013038958_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 13
+    result: false
+    size: 1
+  r0:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_r0_1563795013038958_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 14
+    result: false
+    size: 1
+  res_c_s:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_res_c_s_1563795013038958_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 16
+    result: false
+    size: 10240
+  res_x_s:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_res_x_s_1563795013038958_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 17
+    result: false
+    size: 10240
+  res_y_s:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_res_y_s_1563795013038958_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 18
+    result: false
+    size: 10240
+  res_z_s:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_res_z_s_1563795013038958_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 19
+    result: false
+    size: 10240
+  rprime:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_rprime_1563795013038958_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 15
+    result: false
+    size: 1
+  sal:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_sal_1563795013038958_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 6
+    result: false
+    size: 1
+  step_size:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_step_size_1563795013038958_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 10
+    result: false
+    size: 1
+  vert_c_s:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_vert_c_s_1563795013038958_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 24
+    result: false
+    size: 10240
+  vert_x_p_s:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_vert_x_p_s_1563795013038958_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 28
+    result: false
+    size: 10240
+  vert_x_s:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_vert_x_s_1563795013038958_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 25
+    result: false
+    size: 10240
+  vert_y_p_s:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_vert_y_p_s_1563795013038958_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 29
+    result: false
+    size: 10240
+  vert_y_s:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_vert_y_s_1563795013038958_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 26
+    result: false
+    size: 10240
+  vert_z_p_s:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_vert_z_p_s_1563795013038958_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 30
+    result: false
+    size: 10240
+  vert_z_s:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: calc_potential_single_step_dev_vert_z_s_1563795013038958_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 27
+    result: false
+    size: 10240
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1

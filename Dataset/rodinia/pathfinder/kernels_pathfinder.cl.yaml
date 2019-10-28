@@ -1,0 +1,147 @@
+Barriers: 3
+Branches: 12
+Cov: true
+Loops: 1
+dim: 0
+num_parameters: 12
+dynproc_kernel:
+  HALO:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: dynproc_kernel_HALO_1563801503917486_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 8
+    result: false
+    size: 1
+  border:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: dynproc_kernel_border_1563801503917486_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 7
+    result: false
+    size: 1
+  cols:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: dynproc_kernel_cols_1563801503917486_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 4
+    result: false
+    size: 1
+  gpuResults:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: dynproc_kernel_gpuResults_1563801503917486_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: true
+    size: 10240
+  gpuSrc:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: dynproc_kernel_gpuSrc_1563801503917486_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: true
+    size: 10240
+  gpuWall:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: dynproc_kernel_gpuWall_1563801503917486_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  iteration:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: dynproc_kernel_iteration_1563801503917486_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 0
+    result: false
+    size: 1
+  outputBuffer:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: dynproc_kernel_outputBuffer_1563801503917486_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 11
+    result: true
+    size: 10240
+  prev:
+    cl_scope: local
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: dynproc_kernel_prev_1563801503917486_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 9
+    result: false
+    size: 10240
+  result:
+    cl_scope: local
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: dynproc_kernel_result_1563801503917486_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 10
+    result: false
+    size: 10240
+  rows:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: dynproc_kernel_rows_1563801503917486_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 5
+    result: false
+    size: 1
+  startStep:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: dynproc_kernel_startStep_1563801503917486_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 6
+    result: false
+    size: 1
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1

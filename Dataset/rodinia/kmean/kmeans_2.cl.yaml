@@ -1,0 +1,59 @@
+Barriers: 0
+Branches: 2
+Cov: false
+Loops: 1
+dim: 0
+global:
+- 1024
+- 1
+- 1
+num_parameters: 4
+kmeans_swap:
+  feature:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kmeans_swap_feature_1563817318704885_046.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+  feature_swap:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: kmeans_swap_feature_swap_1563817318704885_046.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  nfeatures:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: kmeans_swap_nfeatures_1563817318704885_046.txt
+    initial_value: unset
+    pointer: false
+    pos: 3
+    result: false
+    size: 1
+  npoints:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: kmeans_swap_npoints_1563817318704885_046.txt
+    initial_value: unset
+    pointer: false
+    pos: 2
+    result: false
+    size: 1
+local:
+- 256
+- 1
+- 1

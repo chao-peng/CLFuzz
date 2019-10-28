@@ -1,0 +1,111 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 2
+Branches: 8
+Loops: 1
+num_parameters: 8
+findK:
+  height:
+    cl_type: long
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: 1000
+    init_file: findK_height_1563403508_000.txt
+    result: false
+    pos: 0
+  knodesD:
+    cl_type: knode
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: findK_knodesD_1563403508_000.txt
+    result: false
+    knode_key0_name: location
+    knode_key1_name: indices [DEFAULT_ORDER + 1]
+    knode_key2_name: keys [DEFAULT_ORDER + 1]
+    knode_key3_name: is_leaf
+    knode_key4_name: num_keys
+    knode_key0_type: int
+    knode_key1_type: int
+    knode_key2_type: int
+    knode_key3_type: bool
+    knode_key4_type: int
+    pos: 1
+  knodes_elem:
+    cl_type: long
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: findK_knodes_elem_1563403508_000.txt
+    result: false
+    pos: 2
+  recordsD:
+    cl_type: record
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: findK_recordsD_1563403508_000.txt
+    result: false
+    record_key0_name: value
+    record_key0_type: int
+    pos: 3
+  currKnodeD:
+    cl_type: long
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: findK_currKnodeD_1563403508_000.txt
+    result: false
+    pos: 4
+  offsetD:
+    cl_type: long
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: findK_offsetD_1563403508_000.txt
+    result: false
+    pos: 5
+  keysD:
+    cl_type: int
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: findK_keysD_1563403508_000.txt
+    result: false
+    pos: 6
+  ansD:
+    cl_type: record
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: findK_ansD_1563403508_000.txt
+    result: true
+    record_key0_name: value
+    record_key0_type: int
+    pos: 7

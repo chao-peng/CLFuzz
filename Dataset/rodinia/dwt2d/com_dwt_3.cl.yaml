@@ -1,0 +1,92 @@
+Barriers: 4
+Branches: 44
+Cov: true
+Loops: 7
+num_parameters: 7
+cl_fdwt53Kernel:
+  WIN_SIZE_X:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: cl_fdwt53Kernel_WIN_SIZE_X_1563814836561006_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 5
+    result: false
+    size: 1
+  WIN_SIZE_Y:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: cl_fdwt53Kernel_WIN_SIZE_Y_1563814836561006_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 6
+    result: false
+    size: 1
+  in:
+    cl_scope: global
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: cl_fdwt53Kernel_in_1563814836561006_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: false
+    size: 10240
+  out:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: cl_fdwt53Kernel_out_1563814836561006_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: false
+    size: 10240
+  steps:
+    cl_scope: null
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: cl_fdwt53Kernel_steps_1563814836561006_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 4
+    result: false
+    size: 1
+  sx:
+    cl_scope: null
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: cl_fdwt53Kernel_sx_1563814836561006_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 2
+    result: false
+    size: 1
+  sy:
+    cl_scope: null
+    cl_type: int
+    const: true
+    fuzzing: random
+    init_file: cl_fdwt53Kernel_sy_1563814836561006_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 3
+    result: false
+    size: 1
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1

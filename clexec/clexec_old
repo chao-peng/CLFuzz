@@ -1,0 +1,515 @@
+#!/usr/bin/env python3
+import yaml
+import sys
+import random
+import argparse
+import time
+
+
+def read_file(file_name):
+    f = open(file_name, "r")
+    result = []
+    for line in f:
+        if line[-1] == "\n" and len(line) > 1:
+            result.append(line[:-1])
+        else:
+            result.append(line)
+    f.close()
+    return result
+
+
+def produce_full_range_rand_value(type_str):
+    lower_bound = 0
+    upper_bound = 0
+    if type_str == 'bool':
+        return random.choice([True, False])
+    elif type_str == 'char':
+        lower_bound = - 2 ** 7
+        upper_bound = 2 ** 7 - 1
+    elif type_str == 'uchar':
+        lower_bound = 0
+        upper_bound = 2 ** 8 - 1
+    elif type_str == 'short':
+        lower_bound = -2 ** 15
+        upper_bound = 2 ** 15 - 1
+    elif type_str == 'ushort':
+        lower_bound = 0
+        upper_bound = 2 ** 16 - 1
+    elif type_str == 'int':
+        lower_bound = - 2 ** 31
+        upper_bound = 2 ** 31 - 1
+    elif type_str == 'uint':
+        lower_bound = 0
+        upper_bound = 2 ** 32 - 1
+    elif type_str == 'long':
+        lower_bound = - 2 ** 63
+        upper_bound = 2 ** 63 - 1
+    elif type_str == 'ulong':
+        lower_bound = 0
+        upper_bound = 2 ** 64 - 1
+    if type_str != 'float' and type_str != 'double' and type_str != 'halt':
+        return random.randint(lower_bound, upper_bound)
+    elif type_str == 'float':
+        lower_bound = 3.4E-38
+        upper_bound = 3.4E38
+    elif type_str == 'double':
+        lower_bound = 1.7E-308
+        upper_bound = 1.7E308
+    elif type_str == 'half':
+        lower_bound = 3.2E-10
+        upper_bound = 3.2E10
+    return random.uniform(lower_bound, upper_bound)
+
+def produce_rand_value(type_str):
+    lower_bound = 0
+    upper_bound = 0
+    if type_str == 'bool':
+        return random.choice([True, False])
+    elif type_str == 'char':
+        lower_bound = - 2 ** 3
+        upper_bound = 2 ** 3 - 1
+    elif type_str == 'uchar':
+        lower_bound = 0
+        upper_bound = 2 ** 4 - 1
+    elif type_str == 'short':
+        lower_bound = -2 ** 7
+        upper_bound = 2 ** 7 - 1
+    elif type_str == 'ushort':
+        lower_bound = 0
+        upper_bound = 2 ** 8 - 1
+    elif type_str == 'int':
+        lower_bound = - 2 ** 15
+        upper_bound = 2 ** 15 - 1
+    elif type_str == 'uint':
+        lower_bound = 0
+        upper_bound = 2 ** 16 - 1
+    elif type_str == 'long':
+        lower_bound = - 2 ** 31
+        upper_bound = 2 ** 31 - 1
+    elif type_str == 'ulong':
+        lower_bound = 0
+        upper_bound = 2 ** 32 - 1
+    if type_str != 'float' and type_str != 'double' and type_str != 'halt':
+        return random.randint(lower_bound, upper_bound)
+    elif type_str == 'float':
+        lower_bound = 3.4E-10
+        upper_bound = 3.4E10
+    elif type_str == 'double':
+        lower_bound = 1.7E-20
+        upper_bound = 1.7E20
+    elif type_str == 'half':
+        lower_bound = 3.2E-5
+        upper_bound = 3.2E5
+    return random.uniform(lower_bound, upper_bound)
+
+
+def produce_rand_array(type_str, length):
+    result = []
+    for i in range(length):
+        result.append(produce_rand_value(type_str))
+    return result
+
+
+def parse_kernel_info(info_filename):
+    yaml_reader = open(info_filename, 'r')
+    kernel_info = yaml.safe_load(yaml_reader)
+    yaml_reader.close()
+    return kernel_info
+
+
+def produce_coverage_host_code(num_barriers, num_branches, num_loops, num_parameters, kernel_name, structure_data_filename):
+    definition_code = ""
+    analysis_code = ""
+    pos = num_parameters
+    if num_barriers != 0:
+        definition_code = definition_code + """
+    int barrier_divergence_recorder[%d] = {0};
+    cl::Buffer buffer_barrier_divergence_recorder = set_up_argument(context, queue, %s, %d, barrier_divergence_recorder, %d, CL_MEM_READ_WRITE);
+        """ % (num_barriers, kernel_name, pos, num_barriers)
+        pos = pos + 1
+        analysis_code = analysis_code + """
+    queue.enqueueReadBuffer(buffer_barrier_divergence_recorder, CL_TRUE, 0, sizeof(int)*(%d), barrier_divergence_recorder);
+        """ % num_barriers
+    if num_branches != 0:
+        definition_code = definition_code + """
+    int branch_coverage_recorder[%d] = {0};
+    cl::Buffer buffer_branch_coverage_recorder = set_up_argument(context, queue, %s, %d, branch_coverage_recorder, %d, CL_MEM_READ_WRITE);
+        """ % (num_branches, kernel_name, pos, num_branches)
+        pos = pos + 1
+        analysis_code = analysis_code + """
+    queue.enqueueReadBuffer(buffer_branch_coverage_recorder, CL_TRUE, 0, sizeof(int)*(%d), branch_coverage_recorder);
+        """ % num_branches
+    if num_loops != 0:
+        definition_code = definition_code + """
+    int loop_coverage_recorder[%d] = {0};
+    cl::Buffer buffer_loop_coverage_recorder = set_up_argument(context, queue, %s, %d, loop_coverage_recorder, %d, CL_MEM_READ_WRITE);
+        """ % (num_loops, kernel_name, pos, num_loops)
+        analysis_code = analysis_code + """
+    queue.enqueueReadBuffer(buffer_loop_coverage_recorder, CL_TRUE, 0, sizeof(int)*(%d), loop_coverage_recorder);
+        """ % num_loops
+
+    analysis_code = analysis_code + """
+    std::ifstream strucutre_data_stream("%s");
+    std::string data_line;
+    double coverage_result;
+    """ % structure_data_filename
+
+    if num_branches != 0:
+        analysis_code = analysis_code + """
+    int covered_branches = 0;
+    for (int i = 0; i < %d; i+=2) {
+        std::getline(strucutre_data_stream, data_line);
+        std::cout << data_line << "\\n";
+        std::getline(strucutre_data_stream, data_line);
+        std::cout << data_line << "\\n";
+        std::getline(strucutre_data_stream, data_line);
+        std::cout << data_line << "\\n";
+        if (branch_coverage_recorder[i]) {
+            std::cout << "\\x1B[32mTrue branch covered\\x1B[0m\\n";
+            covered_branches++;
+        } else { 
+            std::cout << "\\x1B[31mTrue branch not covered\\x1B[0m\\n";
+        }
+        if (branch_coverage_recorder[i + 1]) {
+            std::cout << "\\x1B[32mFalse branch covered\\x1B[0m\\n";
+            covered_branches++;
+        } else { 
+            std::cout << "\\x1B[31mFalse branch not covered\\x1B[0m\\n";
+        }
+    }
+    coverage_result = (double)covered_branches / %d.0 *100.0;
+    printf("Total branch coverage: %%-4.2f\\n", coverage_result);
+        """ % (num_branches, num_branches)
+
+    if num_barriers != 0:
+        analysis_code = analysis_code + """
+    int total_barriers = %d, faulty_barriers = 0;
+    for (int i = 0; i < %d; ++i){
+        std::getline(strucutre_data_stream, data_line);
+        std::cout << data_line << "\\n";
+        std::getline(strucutre_data_stream, data_line);
+        std::cout << data_line << "\\n";
+        if (barrier_divergence_recorder[i]) {
+            std::cout << "\\x1B[31mThis barrier has got a divergence\\x1B[0m\\n";
+            ++faulty_barriers;
+        } else { 
+            std::cout << "\\x1B[32mThis barrier worked fine\\x1B[0m\\n";        
+        }
+    }
+    coverage_result = (double)faulty_barriers / (double)total_barriers *100.0;
+    printf("Faulty barrier rate: %%-4.2f\\n", coverage_result);
+        """ % (num_barriers, num_barriers)
+
+    if num_loops != 0:
+        analysis_code = analysis_code + """
+    int total_loops = %d;
+    int loop_0 = 0, loop_1 = 0, loop_2 = 0, loop_boundary = 0;
+    double loop_0_cov, loop_1_cov, loop_2_cov, loop_boundary_cov;
+    for (int i = 0; i < %d; ++i){
+        if ((loop_coverage_recorder[i] & 1) == 1) {
+            std::cout << "\\x1B[31mLoop " << i << " was once executed for 0 iteration\\x1B[0m\\n";
+            loop_0++;
+        }
+        if ((loop_coverage_recorder[i] & 2) == 2) {
+            std::cout << "\\x1B[32mLoop " << i << " was once executed for 1 iteration\\x1B[0m\\n";
+            loop_1++;
+        }
+        if ((loop_coverage_recorder[i] & 4) == 4) {
+            std::cout << "\\x1B[32mLoop " << i << " was once executed for more than 1 iterations\\x1B[0m\\n";
+            loop_2++;
+        }
+        if ((loop_coverage_recorder[i] & 8) == 8) {
+            std::cout << "\\x1B[32mLoop " << i << " once reached the boundary\\x1B[0m\\n";
+            loop_boundary++;
+        }
+    }
+    loop_0_cov = (double)loop_0 / (double)total_loops *100.0;
+    loop_1_cov = (double)loop_1 / (double)total_loops *100.0;
+    loop_2_cov = (double)loop_2 / (double)total_loops *100.0;
+    loop_boundary_cov = (double)loop_boundary / (double)total_loops *100.0;
+    printf("Loop 0 iteration rate:            %%-4.2f\\n", loop_0_cov);
+    printf("Loop 1 iteration rate:            %%-4.2f\\n", loop_1_cov);
+    printf("Loop more than 1 iterations rate: %%-4.2f\\n", loop_2_cov);
+    printf("Loop boundary reached rate:       %%-4.2f\\n", loop_boundary_cov);
+        """ % (num_loops, num_loops)
+
+    analysis_code = analysis_code + '\n    strucutre_data_stream.close();'
+    coverage_code = {"definition": definition_code, "analysis": analysis_code}
+    return coverage_code
+
+
+def produce_host_code(target_kernel_name, kernel_filename, kernel_info, structure_data_filename):
+    measure_coverage = kernel_info['Cov']
+    num_barriers = kernel_info['Barriers']
+    num_branches = kernel_info['Branches']
+    num_loops = kernel_info['Loops']
+    platform_and_device = [kernel_info["platform_ID"], kernel_info["device_ID"]]
+    global_size = kernel_info["global_size"]
+    local_size = kernel_info["local_size"]
+    target_kernel_info = kernel_info[target_kernel_name]
+    time_stamp = kernel_info["time_stamp"]
+    num_tests = kernel_info["num_tests"]
+    num_parameters = 0
+    for parameter in target_kernel_info:
+        parameter_info = target_kernel_info[parameter]
+        num_parameters = num_parameters + 1
+        if parameter_info["fuzzing"] == "random":
+            if parameter_info["pointer"]:
+                for i in range(num_tests):
+                    random_array = produce_rand_array(parameter_info["cl_type"], parameter_info["size"])
+                    file_name = target_kernel_name + "_" + parameter + "_" + time_stamp + "_" + str(i).zfill(3) + ".txt"
+                    f = open(file_name, "w")
+                    f.write(str(parameter_info["size"]) + "\n")
+                    for a in random_array:
+                        f.write(str(a) + "\n")
+                    f.close()
+                parameter_info["init_file"] = target_kernel_name + "_" + parameter + "_" + time_stamp + ".txt"
+                parameter_info["fuzzing"] = "init_file"
+            else:
+                for i in range(num_tests):
+                    random_value = produce_rand_value(parameter_info["cl_type"])
+                    file_name = target_kernel_name + "_" + parameter + "_" + time_stamp + "_" + str(i).zfill(3) + ".txt"
+                    f = open(file_name, "w")
+                    f.write(str(1) + "\n" + str(random_value) + "\n")
+                    f.close()
+                parameter_info["fuzzing"] = "init_file"
+                parameter_info["init_file"] = target_kernel_name + "_" + parameter + "_" + time_stamp + ".txt"
+
+    coverage_code = {"definition": "", "analysis":""}
+    if measure_coverage:
+        coverage_code = produce_coverage_host_code(num_barriers, num_branches, num_loops, num_parameters,
+                                                   target_kernel_name, structure_data_filename)
+    header = """
+#include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
+#include <fstream>
+#include <streambuf>
+#include <tuple>
+#include <ctime>
+#ifdef __APPLE__
+    #include <OpenCL/cl.hpp>
+#else
+    #include <CL/cl.hpp>
+#endif
+
+#define PLATFORM %d
+#define DEVICE %d
+
+template<typename T>
+cl::Buffer set_up_argument(cl::Context &context, cl::CommandQueue &queue, cl::Kernel& kernel, 
+        const unsigned int& arg_pos, T* host_variable, const size_t& size, const cl_mem_flags &mem_flag) {
+    cl::Buffer buffer(context, mem_flag, sizeof(T) * size);
+    if (mem_flag == CL_MEM_READ_WRITE || mem_flag == CL_MEM_WRITE_ONLY) {
+        queue.enqueueWriteBuffer(buffer, CL_TRUE, 0, sizeof(T) * size, host_variable);
+    }
+    kernel.setArg(arg_pos, buffer);
+    return buffer;
+}
+
+template<typename T>
+void set_up_argument(cl::Context &context, cl::CommandQueue &queue, cl::Kernel& kernel, 
+        const unsigned int& arg_pos, T host_variable) {
+    kernel.setArg(arg_pos, host_variable);
+}
+
+template<typename T>
+size_t initialise_array_from_file(const std::string& file_name, T** variable) {
+    std::ifstream in_file(file_name);
+    std::string line;
+    T tmp_var;
+    size_t size;
+    std::getline(in_file, line);
+    std::istringstream iss(line);
+    iss >> size;
+    T* allocated_array = new T[size];
+    for (int i = 0; i < size; ++i) {
+        std::getline(in_file, line);
+        std::istringstream line_stream(line);
+        line_stream >> tmp_var;
+        allocated_array[i] = tmp_var;
+    }
+    *variable = allocated_array;
+    in_file.close();
+    return size;
+}
+
+template<typename T>
+void initialise_variable_from_file(const std::string& file_name, T* variable) {
+    std::ifstream in_file(file_name);
+    std::string line;
+    std::getline(in_file, line);
+    std::getline(in_file, line);
+    std::istringstream iss(line);
+    iss >> *variable;
+    in_file.close();
+}
+
+template<typename T>
+void write_array_to_file(const std::string& file_name, T* array, const size_t& size) {
+    std::ofstream out_file(file_name);
+    out_file << size << "\\n";
+    for (int i = 0; i < size; ++i) {
+        out_file << array[i] << "\\n";
+    }
+    out_file.close();
+}
+
+template<typename T> 
+void write_variable_to_file(const std::string& file_name, const T& variable) {
+    std::ofstream out_file(file_name);
+    out_file << "1\\n" << variable << "\\n";
+    out_file.close();
+}
+
+int main(int argc, char** argv) {
+    // OpenCL setup
+    std::vector<cl::Platform> all_platforms;
+    cl::Platform::get(&all_platforms);
+    if (all_platforms.size() == 0) {
+        std::cerr << "No available platforms.\\n";
+        exit(-1);
+    }
+    cl::Platform platform = all_platforms[PLATFORM];
+    std::vector<cl::Device> gpu_devices;
+    platform.getDevices(CL_DEVICE_TYPE_GPU, &gpu_devices);
+    if (gpu_devices.size() == 0) {
+        std::cerr << "No GPU device found.\\n";
+        exit(-1);
+    }
+    cl::Device gpu_device = gpu_devices[DEVICE];
+    std::vector<cl::Device> devices_to_use;
+    devices_to_use.push_back(gpu_device);
+    cl::Context context(gpu_device);
+    cl::Program::Sources sources;
+    std::string kernel_filename = "%s";
+    std::ifstream kernel_file(kernel_filename.c_str());
+    std::string kernel_source((std::istreambuf_iterator<char>(kernel_file)),
+                 std::istreambuf_iterator<char>());
+    std::pair<const char*, size_t> kernel_tuple(kernel_source.c_str(), kernel_source.length());
+    sources.push_back(kernel_tuple);
+    cl::Program program(context, sources);
+    if (program.build(devices_to_use) != CL_SUCCESS) {
+        std::cerr << "Error building the kernel [" << kernel_filename << "].\\n";
+        exit(-1);
+    }
+    cl::CommandQueue queue(context, gpu_device);
+    cl::Kernel %s = cl::Kernel(program, "%s");
+""" % (platform_and_device[0], platform_and_device[1], kernel_filename, target_kernel_name, target_kernel_name)
+
+    body = ""
+    # declare and configure host and device data structures
+    declaration = ""
+    for parameter in target_kernel_info:
+        parameter_info = target_kernel_info[parameter]
+        if parameter_info["pointer"]:
+            if parameter_info["cl_scope"] == "local":
+                declaration = declaration + "    %s.setArg(%d, %d * sizeof(%s), NULL);\n" % \
+                              (target_kernel_name, parameter_info["pos"], parameter_info["size"], parameter_info["cl_type"])
+            elif parameter_info["cl_scope"] == "global":
+                if parameter_info["fuzzing"] == "noinit":
+                    declaration = declaration + "    %s* %s = new %s[%d];\n" % \
+                                  (parameter_info["cl_type"], parameter, parameter_info["cl_type"], parameter_info["size"])
+                    declaration = declaration + '    int size_%s = %d;\n' % \
+                                  (parameter, parameter_info["size"])
+                    declaration = declaration + "    cl::Buffer buffer_%s = set_up_argument(context, queue, %s, %d, %s, size_%s, CL_MEM_READ_WRITE);\n" % \
+                                  (parameter, target_kernel_name, parameter_info["pos"], parameter, parameter)
+                else:
+                    declaration = declaration + "    %s* %s;\n" % (parameter_info["cl_type"], parameter)
+                    declaration = declaration + '    int size_%s = initialise_array_from_file("%s", &%s);\n' % \
+                                      (parameter, parameter_info["init_file"], parameter)
+                    declaration = declaration + "    cl::Buffer buffer_%s = set_up_argument(context, queue, %s, %d, %s, size_%s, CL_MEM_READ_WRITE);\n" % \
+                                  (parameter, target_kernel_name, parameter_info["pos"] ,parameter, parameter)
+        else:
+            if parameter_info["fuzzing"] == "initial_value":
+                declaration = declaration + "    %s %s = %s;\n" % (
+                    parameter_info["cl_type"], parameter, parameter_info["initial_value"])
+            else:
+                declaration = declaration + "    %s %s;\n" % (
+                    parameter_info["cl_type"], parameter)
+                declaration = declaration + '        initialise_variable_from_file("%s", &%s);\n' %\
+                              (parameter_info["init_file"], parameter)
+            declaration = declaration + "    set_up_argument(context, queue, %s, %d, %s);\n" % \
+                          (target_kernel_name, parameter_info["pos"], parameter)
+
+    declaration = declaration + "\n" + coverage_code["definition"] + "\n"
+    body = body + declaration
+    body = body + "    queue.enqueueNDRangeKernel(%s, cl::NullRange, cl::NDRange(%d), cl::NDRange(%d));\n" % \
+           (target_kernel_name, global_size, local_size)
+    for parameter in target_kernel_info:
+        parameter_info = target_kernel_info[parameter]
+        if parameter_info["result"]:
+            body = body + "    queue.enqueueReadBuffer(buffer_%s, CL_TRUE, 0, sizeof(%s)*(%d), %s);\n" % \
+                   (parameter, parameter_info["cl_type"], parameter_info["size"], parameter)
+
+    body = body + "    queue.finish();\n"
+    for parameter in target_kernel_info:
+        parameter_info = target_kernel_info[parameter]
+        if parameter_info["result"]:
+            output_filename = target_kernel_name + "_" + parameter + "_" + time_stamp + ".txt"
+            if parameter_info["pointer"]:
+                body = body + '    write_array_to_file("%s", %s, %d);\n' % \
+                       (output_filename, parameter, parameter_info["size"])
+            else:
+                body = body + '    write_variable_to_file("%s, %s);\n"' % \
+                       (output_filename, parameter)
+
+    body = body + coverage_code["analysis"] + "\n}"
+
+    program = header + body
+    with open(target_kernel_name + "_" + time_stamp + '.yaml', 'w') as outfile:
+        yaml.dump(kernel_info, outfile, default_flow_style=False)
+    return program
+
+
+def produce_execution_script(target_kernel_name, kernel_filename, kernel_info, time_stamp):
+    script = """
+#!/bin/bash
+
+    """
+    return
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Execute OpenCL kernels.")
+    parser.add_argument('file', metavar='kernel_file', type=str,  help="kernel file name")
+    parser.add_argument('--info', metavar='info', type=str, help='kernel information in YAML', required=True)
+    parser.add_argument('--kernel', metavar='kernel', type=str, help='kernel under test', required=True)
+    parser.add_argument('--p', metavar='platformID', type=int, help='platform ID', required=False, default=0)
+    parser.add_argument('--d', metavar='deviceID', type=int, help='device ID', required=False, default=0)
+    parser.add_argument('--gsize', metavar="global_size", type=int, help='global size', required=True)
+    parser.add_argument('--lsize', metavar="local_size", type=int, help='local_size', required=True)
+    parser.add_argument('--n', metavar="num_tests", type=int, help="number of tests", required=True)
+    parser.add_argument('--data', metavar="structure_data", type=str, help="structure data filename", required=False,
+                        default="")
+    args = parser.parse_args()
+    kernel_filename = args.file
+    info_filename = args.info
+    target_kernel = args.kernel
+    platform_and_device_ids = [args.p, args.d]
+    kernel_info = parse_kernel_info(info_filename)
+    global_size = args.gsize
+    local_size = args.lsize
+    num_tests = args.n
+    structure_data_filename = args.data
+    time_stamp = str(int(time.time()))
+    kernel_info["global_size"] = global_size
+    kernel_info["local_size"] = local_size
+    kernel_info["platform_ID"] = platform_and_device_ids[0]
+    kernel_info["device_ID"] = platform_and_device_ids[1]
+    kernel_info["num_tests"] = num_tests
+    kernel_info["time_stamp"] = time_stamp
+    if kernel_info["Cov"] and structure_data_filename == "":
+        print("Code coverage measurement is required but no structure data file provided")
+        exit(-1)
+    host_code = produce_host_code(target_kernel, kernel_filename, kernel_info, structure_data_filename)
+    cpp_host_code_filename = target_kernel + "_" + time_stamp + ".cpp"
+    f = open(cpp_host_code_filename, "w")
+    f.write(host_code)
+    f.close()
+    print(cpp_host_code_filename)
+
+
+if __name__ == "__main__":
+    main()

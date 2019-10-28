@@ -1,0 +1,75 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 1
+Branches: 2
+Loops: 0
+num_parameters: 6
+bpnn_adjust_weights_ocl:
+  delta:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: bpnn_adjust_weights_ocl_delta_1563451539_000.txt
+    result: false
+    pos: 0
+  hid:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: bpnn_adjust_weights_ocl_hid_1563451539_000.txt
+    result: false
+    pos: 1
+  ly:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: bpnn_adjust_weights_ocl_ly_1563451539_000.txt
+    result: false
+    pos: 2
+  in:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: bpnn_adjust_weights_ocl_in_1563451539_000.txt
+    result: false
+    pos: 3
+  w:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: bpnn_adjust_weights_ocl_w_1563451539_000.txt
+    result: true
+    pos: 4
+  oldw:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: bpnn_adjust_weights_ocl_oldw_1563451539_000.txt
+    result: true
+    pos: 5

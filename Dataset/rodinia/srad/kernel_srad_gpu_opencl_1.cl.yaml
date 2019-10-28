@@ -1,0 +1,31 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 0
+Branches: 2
+Loops: 0
+num_parameters: 2
+extract_kernel:
+  d_Ne:
+    cl_type: long
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: extract_kernel_d_Ne_1563468758_000.txt
+    result: false
+    pos: 0
+  d_I:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: extract_kernel_d_I_1563468758_000.txt
+    result: true
+    pos: 1

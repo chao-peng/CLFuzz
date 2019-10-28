@@ -1,0 +1,97 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 5
+Branches: 6
+Loops: 1
+num_parameters: 8
+bpnn_layerforward_ocl:
+  input_cuda:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: bpnn_layerforward_ocl_input_cuda_time
+    result: false
+    pos: 0
+  output_hidden_cuda:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: bpnn_layerforward_ocl_output_hidden_cuda_time
+    result: false
+    pos: 1
+  input_hidden_cuda:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: bpnn_layerforward_ocl_input_hidden_cuda_time
+    result: true
+    pos: 2
+  hidden_partial_sum:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: bpnn_layerforward_ocl_hidden_partial_sum_time
+    result: true
+    pos: 3
+  input_node:
+    cl_type: float
+    cl_scope: local
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: bpnn_layerforward_ocl_input_node_time
+    result: false
+    pos: 4
+  weight_matrix:
+    cl_type: float
+    cl_scope: local
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: bpnn_layerforward_ocl_weight_matrix_time
+    result: false
+    pos: 5
+  in:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: bpnn_layerforward_ocl_in_time
+    result: false
+    pos: 6
+  hid:
+    cl_type: int
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: bpnn_layerforward_ocl_hid_time
+    result: false
+    pos: 7

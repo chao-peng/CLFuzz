@@ -1,0 +1,59 @@
+Barriers: 0
+Branches: 2
+ComputePhiMag_GPU:
+  numK:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: ComputePhiMag_GPU_numK_1563194418_017.txt
+    initial_value: unset
+    pointer: false
+    pos: 3
+    result: false
+    size: 1
+  phiI:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: ComputePhiMag_GPU_phiI_1563194418_017.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: false
+    size: 10240
+  phiMag:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: ComputePhiMag_GPU_phiMag_1563194418_017.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: true
+    size: 10240
+  phiR:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: ComputePhiMag_GPU_phiR_1563194418_017.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: false
+    size: 10240
+Cov: false
+Loops: 0
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 4

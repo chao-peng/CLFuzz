@@ -1,0 +1,125 @@
+Barriers: 5
+Branches: 10
+Cov: true
+Loops: 0
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 10
+srad_cuda_2:
+  C_cuda:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: srad_cuda_2_C_cuda_1563794376426656_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 5
+    result: false
+    size: 10240
+  E_C:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: srad_cuda_2_E_C_1563794376426656_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: false
+    size: 10240
+  J_cuda:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: srad_cuda_2_J_cuda_1563794376426656_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: false
+    size: 10240
+  N_C:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: srad_cuda_2_N_C_1563794376426656_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: false
+    size: 10240
+  S_C:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: srad_cuda_2_S_C_1563794376426656_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: false
+    size: 10240
+  W_C:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: srad_cuda_2_W_C_1563794376426656_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: false
+    size: 10240
+  cols:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: srad_cuda_2_cols_1563794376426656_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 6
+    result: false
+    size: 1
+  lambda:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: srad_cuda_2_lambda_1563794376426656_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 8
+    result: false
+    size: 1
+  q0sqr:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: srad_cuda_2_q0sqr_1563794376426656_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 9
+    result: false
+    size: 1
+  rows:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: srad_cuda_2_rows_1563794376426656_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 7
+    result: false
+    size: 1

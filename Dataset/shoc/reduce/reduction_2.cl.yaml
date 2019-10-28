@@ -1,0 +1,42 @@
+Cov: true
+global: [1024, 1, 1]
+local: [256, 1, 1]
+dim: 0
+Barriers: 0
+Branches: 0
+Loops: 1
+num_parameters: 3
+reduceNoLocal:
+  g_idata:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: reduceNoLocal_g_idata_1563375271_098.txt
+    result: true
+    pos: 0
+  g_odata:
+    cl_type: float
+    cl_scope: global
+    const: false
+    pointer: true
+    size: 10240
+    fuzzing: random
+    initial_value: unset
+    init_file: reduceNoLocal_g_odata_1563375271_098.txt
+    result: true
+    pos: 1
+  n:
+    cl_type: uint
+    cl_scope:
+    const: false
+    pointer: false
+    size: 1
+    fuzzing: random
+    initial_value: unset
+    init_file: reduceNoLocal_n_1563375271_098.txt
+    result: false
+    pos: 2

@@ -1,0 +1,125 @@
+Barriers: 7
+Branches: 26
+Cov: false
+num_parameters: 10
+IMGVF_kernel:
+  IMGVF_array:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: IMGVF_kernel_IMGVF_array_1563818025078581_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+  I_array:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: IMGVF_kernel_I_array_1563818025078581_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  I_offsets:
+    cl_scope: constant
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: IMGVF_kernel_I_offsets_1563818025078581_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: true
+    size: 10240
+  cutoff:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: IMGVF_kernel_cutoff_1563818025078581_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 9
+    result: false
+    size: 1
+  e:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: IMGVF_kernel_e_1563818025078581_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 7
+    result: false
+    size: 1
+  m_array:
+    cl_scope: constant
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: IMGVF_kernel_m_array_1563818025078581_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: true
+    size: 10240
+  max_iterations:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: IMGVF_kernel_max_iterations_1563818025078581_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 8
+    result: false
+    size: 1
+  n_array:
+    cl_scope: constant
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: IMGVF_kernel_n_array_1563818025078581_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: true
+    size: 10240
+  vx:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: IMGVF_kernel_vx_1563818025078581_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 5
+    result: false
+    size: 1
+  vy:
+    cl_scope: null
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: IMGVF_kernel_vy_1563818025078581_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 6
+    result: false
+    size: 1
+Loops: 5
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1

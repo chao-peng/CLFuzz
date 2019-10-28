@@ -1,0 +1,70 @@
+Barriers: 0
+Branches: 4
+Cov: false
+Loops: 3
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 5
+mb_sad_calc:
+  blk_sad:
+    cl_scope: global
+    cl_type: ushort
+    const: false
+    fuzzing: random
+    init_file: mb_sad_calc_blk_sad_1563750175423681_004.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+  frame:
+    cl_scope: global
+    cl_type: ushort
+    const: false
+    fuzzing: random
+    init_file: mb_sad_calc_frame_1563750175423681_004.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: true
+    size: 10240
+  img_ref:
+    cl_scope: global
+    cl_type: ushort
+    const: false
+    fuzzing: random
+    init_file: mb_sad_calc_img_ref_1563750175423681_004.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: true
+    size: 10240
+  mb_height:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: mb_sad_calc_mb_height_1563750175423681_004.txt
+    initial_value: unset
+    pointer: false
+    pos: 3
+    result: false
+    size: 1
+  mb_width:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: mb_sad_calc_mb_width_1563750175423681_004.txt
+    initial_value: unset
+    pointer: false
+    pos: 2
+    result: false
+    size: 1

@@ -1,0 +1,131 @@
+Barriers: 1
+Branches: 6
+Cov: false
+Loops: 2
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
+num_parameters: 10
+pgain_kernel:
+  K:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: pgain_kernel_K_1563799225327873_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 9
+    result: false
+    size: 1
+  center_table_d:
+    cl_scope: global
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: pgain_kernel_center_table_d_1563799225327873_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: true
+    size: 10240
+  coord_d:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: pgain_kernel_coord_d_1563799225327873_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: false
+    size: 10240
+  coord_s:
+    cl_scope: local
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: pgain_kernel_coord_s_1563799225327873_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 5
+    result: false
+    size: 10240
+  dim:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: pgain_kernel_dim_1563799225327873_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 7
+    result: false
+    size: 1
+  num:
+    cl_scope: null
+    cl_type: int
+    const: false
+    fuzzing: random
+    init_file: pgain_kernel_num_1563799225327873_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 6
+    result: false
+    size: 1
+  p:
+    Point_Struct_key0_name: weight
+    Point_Struct_key0_type: float
+    Point_Struct_key1_name: assign
+    Point_Struct_key1_type: long
+    Point_Struct_key2_name: cost
+    Point_Struct_key2_type: float
+    cl_scope: global
+    cl_type: Point_Struct
+    const: false
+    fuzzing: random
+    init_file: pgain_kernel_p_1563799225327873_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 0
+    result: true
+    size: 10240
+  switch_membership_d:
+    cl_scope: global
+    cl_type: char
+    const: false
+    fuzzing: random
+    init_file: pgain_kernel_switch_membership_d_1563799225327873_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: false
+    size: 10240
+  work_mem_d:
+    cl_scope: global
+    cl_type: float
+    const: false
+    fuzzing: random
+    init_file: pgain_kernel_work_mem_d_1563799225327873_000.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: true
+    size: 10240
+  x:
+    cl_scope: null
+    cl_type: long
+    const: false
+    fuzzing: random
+    init_file: pgain_kernel_x_1563799225327873_000.txt
+    initial_value: unset
+    pointer: false
+    pos: 8
+    result: false
+    size: 1

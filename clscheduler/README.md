@@ -1,0 +1,1 @@
+Enable scheduling for OpenCL GPU programs

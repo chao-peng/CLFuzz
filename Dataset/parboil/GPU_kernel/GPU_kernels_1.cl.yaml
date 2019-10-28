@@ -1,0 +1,104 @@
+Barriers: 0
+Branches: 4
+Cov: false
+Loops: 0
+num_parameters: 5
+binning_kernel:
+  binCount_g:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: binning_kernel_binCount_g_1563140507_002.txt
+    initial_value: unset
+    pointer: true
+    pos: 4
+    result: false
+    size: 10240
+  binsize:
+    cl_scope: null
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: binning_kernel_binsize_1563140507_002.txt
+    initial_value: unset
+    pointer: false
+    pos: 5
+    result: false
+    size: 1
+  gridNumElems:
+    cl_scope: null
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: binning_kernel_gridNumElems_1563140507_002.txt
+    initial_value: unset
+    pointer: false
+    pos: 6
+    result: false
+    size: 1
+  idxKey_g:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: noinit
+    init_file: binning_kernel_idxKey_g_1563140507_002.txt
+    initial_value: unset
+    pointer: true
+    pos: 2
+    result: true
+    size: 10240
+  idxValue_g:
+    cl_scope: global
+    cl_type: uint
+    const: false
+    fuzzing: noinit
+    init_file: binning_kernel_idxValue_g_1563140507_002.txt
+    initial_value: unset
+    pointer: true
+    pos: 3
+    result: true
+    size: 10240
+  n:
+    cl_scope: null
+    cl_type: uint
+    const: false
+    fuzzing: random
+    init_file: binning_kernel_n_1563140507_002.txt
+    initial_value: unset
+    pointer: false
+    pos: 0
+    result: false
+    size: 1
+  sample_g:
+    ReconstructionSample_key0_name: real
+    ReconstructionSample_key0_type: float
+    ReconstructionSample_key1_name: imag
+    ReconstructionSample_key1_type: float
+    ReconstructionSample_key2_name: kX
+    ReconstructionSample_key2_type: float
+    ReconstructionSample_key3_name: kY
+    ReconstructionSample_key3_type: float
+    ReconstructionSample_key4_name: kZ
+    ReconstructionSample_key4_type: float
+    ReconstructionSample_key5_name: sdc
+    ReconstructionSample_key5_type: float
+    cl_scope: global
+    cl_type: ReconstructionSample
+    const: false
+    fuzzing: random
+    init_file: binning_kernel_sample_g_1563140507_002.txt
+    initial_value: unset
+    pointer: true
+    pos: 1
+    result: false
+    size: 10240
+dim: 0
+global:
+- 1024
+- 1
+- 1
+local:
+- 256
+- 1
+- 1
