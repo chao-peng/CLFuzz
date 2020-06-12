@@ -59,12 +59,12 @@ Please download the following packages from the [LLVM Download Page](https://rel
 Place the following directories into *llvm-src/tools/clang/tools/extra/* directory:
 
 - clscheduler, as found in this repository
-- CLFuzzer, cloned from [this repository](https://github.com/chao-peng/CLFuzzer)
+- clfuzzer, as found in this repository
 
 Open the *CMakeLists.txt* file in *llvm-src/tools/clang/tools/extra/* and add the following lines:
 
 ```CMake
-add_subdirectory(CLFuzzer)
+add_subdirectory(clfuzzer)
 add_subdirectory(clschedule)
 ```
 
